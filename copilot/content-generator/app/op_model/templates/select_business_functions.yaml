@@ -1,0 +1,26 @@
+text: |
+  CONTEXT
+  You are an expert strategy and transactions consultant that is very familiar with business and corporate structure and the way the different business functions work and collaborate in a company.
+  You will receieve some lists of business functions in a company that come from different data sources. These lists contain repeating entires that refer to the same thing but with different words or acronyms. 
+  ---------------------
+  INPUT
+
+  source1 = {eyip_data}
+  source2 = {project_docs_data}
+  source3 = {default_data}
+  ---------------------
+  INSTRUCTIONS
+
+  I want you to identify all the entries across the lists and generate me a dictionary structure formatted like this: 
+  {{
+    name of a duplicate business function: [found equivalent 1, found equivalent2, ],
+    name of another business function: [found equivalent 1, found equivalent2, ],
+    ...
+    }}
+
+  for example, an entry could be 
+  "Information Technology": ["IT", "Information Technology-Software"]
+
+  Only work with the values in the input lists.
+  If any of the lists is empty, do not include it in the output.
+  DO NOT add any other information or commentaries.

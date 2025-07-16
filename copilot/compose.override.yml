@@ -1,0 +1,6 @@
+services:
+  copilotservice:
+    build:
+      target: dev
+    volumes:
+      - ./CopilotService:/app/CopilotService

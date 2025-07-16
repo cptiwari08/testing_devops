@@ -1,0 +1,12 @@
+# .coveragerc to control coverage.py
+[run]
+omit =
+    # omit virtualenv
+    ./venv/*
+    # omit __init__.py
+    */__init__.py
+    # omit everything in the tests
+    **/tests/*
+
+[report]
+show_missing = True

@@ -1,0 +1,6 @@
+text: |
+  Given the context inside triplet backticks:
+
+  ```{project_description}```
+
+  {user_prompt}

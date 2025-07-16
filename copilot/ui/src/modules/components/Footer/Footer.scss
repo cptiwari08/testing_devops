@@ -1,0 +1,149 @@
+
+@import "/src/assets/scss/variables";
+@import "src/assets/scss/typography.scss";
+.footer{
+  font-size: $fontSize11;
+  line-height: 18px;
+  padding: 0 54px;
+  text-align: center;
+  color: $grey-400;
+
+  &__show-more-less{
+    text-decoration: underline;
+    color: $grey-400;
+    cursor: pointer;
+  }
+  &__message{
+    &--sub-text{
+      display: block;
+    }
+    a{
+      text-decoration: none;
+    }
+  }
+  a{
+    color: $link-text;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  &__feedback{
+    text-decoration: none;
+    background: none;
+    border: none;
+    color: $link-text;
+    padding: 0;
+    font-size: $fontSize11;
+  }
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $modal-overlay-bg-color;
+  z-index: 999; 
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  height:400px;
+  transform: translate(-50%, -50%);
+  width: 660px;
+  background-color: $white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  &__error {
+    color: $red-1000;
+    text-align: left;
+    margin-left: 0px !important;
+    margin-bottom: -18px;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px 20px 0 20px;
+  }
+
+  &__title {
+    margin: 0;
+    font-family: $ey-font-light;
+    font-size: 1.3rem;
+  }
+
+  &__close-btn {
+    border: none;
+    background: none;
+    font-size: 20px;
+    cursor: pointer;
+    &-icon{
+      color:$grey-400;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    font-family: $ey-font-light;
+    p{
+      margin-left:-20px;
+    }
+
+    &--rating {
+      position: relative;
+      padding: 20px 0 20px 0;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      font-size: 35px;
+      &-star{
+        color:$grey-300;
+        &.selected{
+          color: $yellow-400;
+        }
+      }
+    }
+  }
+
+  &__textarea {
+    width: 100%;
+    height: 115px;
+    padding: 10px;
+    border: 1px solid $grey-300;
+    border-radius: 5px;
+    resize: none;
+  }
+  &__footer {
+    padding:20px;
+    display: flex;
+    justify-content: flex-end; 
+    margin-top: auto;
+  }
+
+  &__cancel-btn {
+    padding:10px;
+    color: $grey-500;
+    background-color: $white;
+    border: 1px solid $grey-300;
+    margin-right:10px;
+  }
+  
+  &__submit-btn {
+    background-color: $black;
+    padding:10px;
+    color:$white;;
+    &.disabled{
+      opacity:0.8;
+      cursor: not-allowed;
+    }
+  }
+}

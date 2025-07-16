@@ -1,0 +1,57 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: content-generator-config
+data:
+  KEY_VAULT_URL: #{azureKeyVaultUrl}#
+  PMO_WORKPLAN_INDEX_NAME: #{PointProjectID}#-prjdocs
+  AI_SEARCH_INSTANCE_NAME: #{AISIntanceName}#
+  HOST_PROGRAM_OFFICE: #{baseURL}#/#{ProjectID}#-ce4/api
+  HOST_COPILOT_API: #{baseURL}#/#{ProjectID}#/copilot/api
+  APPLICATIONINSIGHTS_CONNECTION_STRING: #{AppInsightsInstrumentationKey}#
+  PROMPT_MANAGER_STRATEGY: #{PromptManagerStrategy}#
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: content-generator
+  labels:
+    aadpodidbinding: ce5-managed-identity
+spec:
+  selector:
+    matchLabels:
+      app: content-generator
+  replicas: 1 # tells deployment to run 2 pods matching the template
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: content-generator
+        aadpodidbinding: ce5-managed-identity
+    spec:
+      nodeSelector:
+        application: app-platform
+      automountServiceAccountToken: false
+      containers:
+      - name: content-generator
+        image: #{ACRName}#.azurecr.io/ai-content-generator:#{AppBuildId}#
+        ports:
+        - containerPort: 8000
+        envFrom:
+        - configMapRef:
+           name: content-generator-config
+        env:
+        - name: AZURE_CLIENT_ID
+          value: #{azureClientId}#
+        - name: AZURE_TENANT_ID
+          value: #{azureTenantId}#
+        - name: AZURE_CLIENT_SECRET
+          value: #{azureClientSecret}#
+        imagePullPolicy: Always
+      restartPolicy: Always
+---

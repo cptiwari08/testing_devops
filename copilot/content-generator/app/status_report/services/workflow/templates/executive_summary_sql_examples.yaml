@@ -1,0 +1,7 @@
+text: |
+  SELECT TOP 3 PSE.ExecutiveSummary AS ExecutiveSummary
+  FROM ProjectStatusEntries PSE
+  LEFT JOIN ProjectTeams PT ON PSE.ProjectTeamID = PT.ID
+  LEFT JOIN ReportingPeriods RP ON PSE.ReportingPeriodID = RP.ID
+  WHERE
+  PSE.ExecutiveSummary IS NOT NULL

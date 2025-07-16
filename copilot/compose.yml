@@ -1,0 +1,44 @@
+volumes:
+  redis_data:
+    driver: local
+services:
+  copilotservice:
+    build:
+      context: ./api/CopilotService
+    environment:
+      - CopilotAzureSpnId=${CopilotAzureSpnId}
+      - CopilotAzureSpnSecret=${CopilotAzureSpnSecret}
+      - CopilotAzureTenantId=${CopilotAzureTenantId}
+      - CopilotWorkspaceRegion=${CopilotWorkspaceRegion}
+      - CopilotWorkspaceName=${CopilotWorkspaceName}
+      - CopilotWorkspaceId=${CopilotWorkspaceId}
+      - CopilotSSPBaseUrl=${CopilotSSPBaseUrl}
+      - CopilotSQLServerName=${CopilotSQLServerName}
+      - CopilotSQLDatabaseName=${CopilotSQLDatabaseName}
+      - CopilotAadUserName=${CopilotAadUserName}
+      - CopilotAadPassword=${CopilotAadPassword}
+      - CopilotRedisName=${CopilotRedisName}
+      - CopilotRedisPort=${CopilotRedisPort}
+      - CopilotRedisKey=${CopilotRedisKey}
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+    ports:
+      - "5000:8080"
+    depends_on:
+      - redis
+  redis:
+    image: bitnami/redis:latest
+    environment:
+      - REDIS_PASSWORD=${CopilotRedisKey}
+      - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL,CONFIG
+    ports:
+      - 6379
+    volumes:
+      - redis_data:/bitnami/redis/data
+  web:
+    build:
+      context: ./ui
+      
+    ports:
+      - "3000:80"
+    depends_on:
+      - copilotservice

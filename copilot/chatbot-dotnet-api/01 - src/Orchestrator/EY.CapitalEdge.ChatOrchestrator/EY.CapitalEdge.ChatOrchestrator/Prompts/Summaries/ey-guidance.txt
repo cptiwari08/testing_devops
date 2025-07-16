@@ -1,0 +1,60 @@
+﻿Instructions:
+       - You are going to get a question and the response from two sources: ey-guidance-help-copilot and ey-guidance-ey-ip. These responses are going to be inside triple quotes
+       - Your task is to Generate ONE CONDENSED response keeping the format of the single answers, preserving main ideas in a chat-bot application.
+       - If one of the sources mention something like: 'I am sorry' or 'I do not have enough information' or 'Could you please' or 'The request was canceled' that source MUST NOT be considered for the condense or rewritten response.
+       - If one of the sources is empty or null, it should not be considered for the response.
+       - If one ALL the sources mention something like: 'I am sorry' or 'I do not have enough information' or 'Could you please' or 'The request was canceled' respond: 'I’m sorry, but I don’t have enough information to answer that. Can you please ask a more specific question or prompt?' 
+       - Don't repeat information.
+       - Keep your responses concise.
+       - Make sure to not mention the name of the sources.
+       - Avoiding extra explanations and avoid answering the question with previous responses.
+ 
+ 
+ 
+   Question: "How to export report to PPT?"
+     ey-guidance-help-copilot:
+     '''To export a report to PowerPoint, follow these steps:
+               1. Select the PowerPoint placeholder where you want to insert your data.
+               2. Go to your Excel file containing your data and select the chart or table to insert.
+               3. Navigate to the UpSlide tab and click on PowerPoint > Export to PowerPoint.
+               4. Now, your Excel data is linked to PowerPoint. If you make any changes to your data (formatting, number values, or otherwise),
+               you can then Update your links. You can also use 'Resize and export' to perfectly insert the chart in your placeholder.
+               This is done by re-sizing the first column. Alternatively, you can use the Sizing Guide to manually amend the table to the size of your placeholder.'''
+ 
+   ey-guidance-ey-ip:
+   '''To export a report to PowerPoint, you can use the PowerPoint application itself. Here's how you can do it:
+               1. Open the report you want to export in the application you are using to view it (e.g., Excel, Word, etc.).
+               2. Select the content you want to export to PowerPoint. This could be a table, a chart, or any other visual representation of the data.
+               3. Copy the selected content by right-clicking and choosing the "Copy" option or by pressing Ctrl+C on your keyboard.
+               4. Open PowerPoint and create a new slide in the presentation where you want to paste the report.
+               5. Paste the copied content onto the slide by right-clicking and choosing the "Paste" option or by pressing Ctrl+V on your keyboard.
+               6. Adjust the size and position of the pasted content on the slide as needed.
+               7. Repeat steps 2-6 for any additional content you want to export to PowerPoint.
+               8. Save the PowerPoint presentation.
+               If you have any further questions or need assistance with a specific task, feel free to ask!'''
+ 
+   Rewritten Response: To export a report to PowerPoint, follow these steps:
+               1.Open the report you want to export in the application you are using to view it.
+               2.Select the content you want to export, such as a table or chart.
+               3.Copy the selected content.
+               4.Open PowerPoint and create a new slide in the presentation.
+               5.Paste the copied content onto the slide.
+               6.Adjust the size and position of the pasted content as needed.
+               7.Repeat steps 2-6 for any additional content you want to export.
+               8.Save the PowerPoint presentation.
+ 
+     Question: "How to export report to pdf?"
+ 
+     ey-guidance-help-copilot:
+               '''To export a report to PDF, select the documents you would like to export, then click 'export'.
+               In the dialogue box that appears, choose the PDF format and the layout of your exported documents.
+               This process can be applied in applications like Kira and EY Capital Edge as indicated in the context.'''
+ 
+     ey-guidance-ey-ip:
+               '''I'm sorry, but I am not able to export reports to PDF. My expertise lies in answering questions and providing assistance related to SQL Server and data analysis. If you have any questions or need help with SQL queries, I'll be happy to assist you.'''
+ 
+   Rewritten Response:
+               To export a report to PDF, select the documents you would like to export, then click 'export'.
+               In the dialogue box that appears, choose the PDF format and the layout of your exported documents.
+               This process can be applied in applications like Kira and EY Capital Edge as indicated in the context.
+               If you have any further questions or need assistance with a specific task, feel free to ask!

@@ -1,0 +1,207 @@
+@import "/src/assets/scss/variables";
+.viewdocs-modal {
+  background-color: $white;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  padding: 24px 24px 32px 24px;
+  margin-left: -12px;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+
+    &__left-side {
+      display: flex;
+      flex-flow: column;
+      &__title {
+        color: $black;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+
+        small {
+          background: $gray-275;
+          display: flex;
+          padding: 8px;
+          height: 28px;
+          border-radius: 16px;
+          text-align: center;
+          align-items: center;
+          justify-content: center;
+          font-size: 12px;
+          color: $grey-500;
+          margin-left: 6px;
+        }
+      }
+      &__subtitle {
+        color: $grey-400;
+        font-size: 14px;
+      }
+    }
+
+    &__right-btns{
+      display: flex;
+      justify-content: center;
+    }
+    &__right-side {
+      color: $grey-400;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      padding: 6px;
+
+      &__back {
+        border: 1px solid $grey-700;
+        padding: 12px;
+        border-radius: 2px;
+
+        svg {
+          transform: rotate(90deg);
+        }
+      }
+    }
+  }
+  &__body {
+    margin-top: 24px;
+    .scrollable {
+      overflow: scroll;
+      height: calc(100vh - 243px);
+    }
+
+    .scrollable::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .scrollable::-webkit-scrollbar-thumb {
+      background: $grey-200;
+      border-radius: 8px;
+    }
+
+    .scrollable::-webkit-scrollbar-thumb:hover {
+      background: $grey-300;
+    }
+
+    .scrollable::-webkit-scrollbar-track {
+      background: $white;
+    }
+
+    &__search {
+      border-style: solid;
+      border-color: $grey-700;
+      border-width: 1px 1px 0 1px;
+      padding: 20px 24px 16px;
+      border-top-left-radius: 2px;
+      border-top-right-radius: 2px;
+      margin-right: 6px;
+
+      &__input {
+        border: 1px solid $grey-700;
+        width: 100px;
+        padding: 6px;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        border-radius: 2px;
+
+        svg {
+          color: $grey-400;
+          padding: 4px;
+        }
+        input {
+          border: none;
+          width: calc(100% - 32px);
+          font-size: 16px;
+        }
+      }
+    }
+    &__table-head {
+      display: flex;
+      justify-content: space-between;
+      background-color: $bg-color;
+      color: $grey-450;
+      border-style: solid;
+      border-color: $grey-700;
+      border-width: 1px;
+      padding: 20px 24px;
+      margin-right: 6px;
+      font-size: 14px;
+    }
+
+    &__item {
+      display: flex;
+      padding: 20px 24px;
+      border-style: solid;
+      border-color: $grey-700;
+      border-width: 0 1px 1px 1px;
+      justify-content: space-between;
+      align-items: center;
+
+      .item-wrapper{
+        display: flex;
+      }
+
+      &__icon {
+        padding-right: 12px;
+        cursor: pointer;
+        color: $grey-450;
+
+        span {
+          background-color: $gray-275;
+          width: 32px;
+          height: 32px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50%;
+        }
+      }
+      &__label {
+        display: flex;
+        flex-direction: column;
+        &__filename {
+          color: $black;
+          cursor: pointer;
+        }
+        &__filesize {
+          color: $grey-400;
+        }
+      }
+    }
+  }
+
+  &__errorsection{
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+    border-top: 1px solid $gray-325;
+    height: 100%;
+
+    &__body{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-flow: column;
+      max-width: 352px;
+      text-align: center;
+      gap: 12px;
+    
+    
+      &_icon{
+        padding: 12px 14px;
+        border-radius: 50%;
+        background-color: $gray-275;
+      }
+      &_title{
+        line-height: 24px;
+        font-weight: bold;
+        color: $black;
+      }
+      &_message{
+        color: $grey-400;
+        line-height: 20px;
+      }
+    }
+  }
+}

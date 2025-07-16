@@ -1,0 +1,10 @@
+text: |
+  User question:
+  ---------------------
+  {user_prompt}
+  ---------------------
+
+  You can use the following project-related information to generate a response. If you do so, ensure to add this flag '#PD' at the end of your response:
+  ---------------------
+  {project_description}
+  ---------------------

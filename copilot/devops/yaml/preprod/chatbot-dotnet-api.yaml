@@ -1,0 +1,72 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chatbot-dotnet-api
+  labels:
+    aadpodidbinding: ce5-managed-identity
+spec:
+  selector:
+    matchLabels:
+      app: chatbot-dotnet-api
+  replicas: 2 # tells deployment to run 2 pods matching the template
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: chatbot-dotnet-api
+        aadpodidbinding: ce5-managed-identity
+    spec:
+      nodeSelector:
+        application: app-platform
+      automountServiceAccountToken: false
+      containers:
+      - name: chatbot-dotnet-api
+        image: #{ACRName}#.azurecr.io/chatbot-help-copilot-api:#{ApiAppBuildId}#
+        ports:
+        - containerPort: 8080
+        env:
+        - name: AZURE_CLIENT_ID
+          value: #{azureClientId}#
+        - name: AZURE_TENANT_ID
+          value: #{azureTenantId}#
+        - name: AZURE_CLIENT_SECRET
+          value: #{azureClientSecret}#
+        - name: KEY_VAULT_URL
+          value: #{azureKeyVaultUrl}#
+        - name: EYHelpCopilotAPI
+          value: #{CapitalEdgeBaseURL}#
+        - name: APPLICATIONINSIGHTS_CONNECTION_STRING
+          value: #{ApplicationInsightConnectionString}#
+        - name: ASPNETCORE_ENVIRONMENT
+          value: #{ANC_ENVIRONMENT}#
+        - name: PublicKey
+          value: #{CapitalEdgePublicKey}#
+        - name: Issuer
+          value: #{CapitalEdgeIssuer}#
+        imagePullPolicy: Always    
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: chatbot-dotnet-api
+  labels:
+    app: chatbot-dotnet-api
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+    service.beta.kubernetes.io/azure-load-balancer-ipv4: 13.0.3.208
+spec:
+  type: LoadBalancer
+  selector:
+    app: chatbot-dotnet-api
+  ports:
+    - name: http
+      protocol: TCP
+      port: 8080
+      targetPort: 8080

@@ -1,0 +1,187 @@
+trigger:
+  batch: true
+  branches:
+    include:
+      - develop
+      - master
+      - pre-prod
+      - prod
+  paths:
+    include:
+      - "copilot/chatbot-dotnet-api/01 - src/Orchestrator/*"
+    exclude:
+      - "copilot/chatbot-dotnet-api/02 - devops"
+
+pr:
+  branches:
+    include:
+    - develop
+    - master
+    - pre-prod
+    - prod
+
+parameters:
+  - name: manuallyDeploy
+    displayName: Deploy Manually?
+    type: boolean
+    default: true
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  - group: ce4-chatbot-dotnet-api-orchestrator
+  - name: patch
+    value: $[counter(variables['minor'],0)]
+
+stages:
+  - stage: build_version
+    displayName: Build Version
+
+    jobs:
+      - job: versioning_build
+        variables:
+          pr_patch: $[counter(variables['system.pullrequest.pullresquestid'],0)]
+          br_patch: $[counter(variables['build.sourcebranchname'],0)]
+
+        steps:
+          - bash: |
+              echo "##vso[build.updatebuildnumber]$(major).$(minor).$(patch)"
+            condition: eq(variables['Build.SourceBranch'], 'refs/heads/prod')
+            name: set_prod_build_version
+
+          - bash: |
+              echo "##vso[build.updatebuildnumber]$(major).$(minor)-pullrequest.$(pr_patch)"
+            condition: and(eq(variables['Build.Reason'], 'PullRequest'), ne(variables['Build.SourceBranch'], 'refs/heads/prod'))
+            name: set_pr_build_name
+
+          - bash: |
+              echo "##vso[build.updatebuildnumber]$(major).$(minor)-$(Build.SourceBranchName).$(br_patch)"
+            condition: and(ne(variables['Build.Reason'], 'PullRequest'), ne(variables['Build.SourceBranch'], 'refs/heads/prod'))
+            name: set_branch_build_name
+
+  - stage: build_and_publish
+    displayName: Build and Publish
+    dependsOn: build_version
+    jobs:
+      - job: build_and_publish  
+
+        steps:
+          
+          - bash: |
+              cd "$(System.DefaultWorkingDirectory)/copilot/chatbot-dotnet-api/01 - src/Orchestrator/EY.CapitalEdge.ChatOrchestrator/EY.CapitalEdge.ChatOrchestrator/"
+              durabletask=""
+              function=""
+              
+              if [ "$(Build.SourceBranchName)" = "develop" ]; then
+                durabletask=$(log-level-durable-task-dev)
+                function=$(log-level-function-dev)
+              elif [ "$(Build.SourceBranchName)" = "master" ]; then
+                durabletask=$(log-level-durable-task-qa)
+                function=$(log-level-function-qa)
+              elif [ "$(Build.SourceBranchName)" = "preprod" ]; then
+                durabletask=$(log-level-durable-task-preprod)
+                function=$(log-level-function-preprod)
+              elif [ "$(Build.SourceBranchName)" = "prod" ]; then
+                durabletask=$(log-level-durable-task-prod)
+                function=$(log-level-function-prod)
+              fi
+
+              jq --arg dt "$durabletask" '.logging.logLevel["Host.Triggers.DurableTask"] = $dt' host.json > host_new.json && mv host_new.json host.json
+              jq --arg fun "$function" '.logging.logLevel.Function = $fun' host.json > host_new.json && mv host_new.json host.json
+            
+              cat host.json
+            displayName: Set Logging Level
+
+          - task: DotNetCoreCLI@2
+            displayName: 'dotnet restore'
+            inputs:
+              command: restore
+              projects: '**/EY.CapitalEdge.ChatOrchestrator.sln'
+
+          - task: DotNetCoreCLI@2
+            displayName: 'Build '
+            inputs:
+              projects: '**/EY.CapitalEdge.ChatOrchestrator.csproj'
+              arguments: '--configuration $(BuildConfiguration)'
+
+          - task: DotNetCoreCLI@2
+            condition: and(succeeded(), or(eq(variables['Build.Reason'], 'PullRequest'), eq(variables['Build.Reason'], 'Manual')))
+            displayName: 'Dotnet Test'
+            inputs:
+              command: test
+              projects: '**/EY.CapitalEdge.ChatOrchestrator.Tests/EY.CapitalEdge.ChatOrchestrator.Tests.csproj'
+              arguments: '--logger trx --results-directory CodeCoverage --collect:"XPlat Code Coverage;Format=cobertura;ExcludeByFile=**/*.g.cs"' 
+              publishTestResults: false
+          
+          - script: |
+              dotnet tool install --global dotnet-reportgenerator-globaltool
+              export PATH="$PATH:$HOME/.dotnet/tools"
+              reportgenerator -reports:$(Build.SourcesDirectory)/CodeCoverage/**/coverage.cobertura.xml -targetdir:$(Build.SourcesDirectory)/CodeCoverage -reporttypes:HtmlInline_AzurePipelines
+            displayName: 'Generate coverage report'
+            condition: and(succeeded(), or(eq(variables['Build.Reason'], 'PullRequest'), eq(variables['Build.Reason'], 'Manual')))
+
+          - task: PublishCodeCoverageResults@1
+            condition: and(succeeded(), or(eq(variables['Build.Reason'], 'PullRequest'), eq(variables['Build.Reason'], 'Manual')))
+            displayName: 'Publish code coverage results'
+            inputs:
+              codeCoverageTool: Cobertura
+              summaryFileLocation: '$(Build.SourcesDirectory)/CodeCoverage/**/coverage.cobertura.xml'
+              reportDirectory: '$(Build.SourcesDirectory)/CodeCoverage'
+              failIfCoverageEmpty: true
+          
+          - bash: |
+              $(head -n 3 $(Build.SourcesDirectory)/CodeCoverage/**/coverage.cobertura.xml > coverage2)
+              coverage=$(sed -n 's/.*line-rate="\([0-9.]*\)".*/\1/p' coverage2)
+              coverage_percentage=$(echo "scale=2; $coverage * 100" | bc)
+              
+              echo "Coverage value is: $coverage"
+              echo "Coverage percentage is: $coverage_percentage"
+              
+              threshold=75
+              
+              if [ "$(echo "$coverage_percentage > $threshold" | bc)" -eq 1 ]; then
+                  echo "Coverage percentage $coverage_percentage is greater than threshold $threshold."
+              else
+                  echo "##vso[task.logissue type=error;]Code coverage is below $threshold! Coverage is $coverage_percentage."
+                  echo "##vso[task.complete result=Failed;]DONE"
+              fi
+            displayName: 'Check code coverage threshold'
+            condition: and(succeeded(), or(eq(variables['Build.Reason'], 'PullRequest'), eq(variables['Build.Reason'], 'Manual')))
+            continueOnError: true
+
+          - task: CmdLine@2
+            condition: and(succeeded(), or(eq(variables['Build.Reason'], 'PullRequest'), eq(variables['Build.Reason'], 'Manual')))
+            displayName: 'Download Mend Unified Agent'
+            inputs:
+              script: 'curl -LJO https://github.com/whitesource/unified-agent-distribution/releases/latest/download/wss-unified-agent.jar'
+
+          - task: Bash@3
+            condition: and(succeeded(), or(eq(variables['Build.Reason'], 'PullRequest'), eq(variables['Build.Reason'], 'Manual')))
+            displayName: 'Preparing Mend config'
+            inputs:
+              targetType: 'inline'
+              script: |
+                echo "Preparing config with dynamic projectName..."
+                sed -i 's/projectName=.*/projectName=$(projectname)/' wss-unified-agent.config
+
+          - task: CmdLine@2
+            condition: and(succeeded(), or(eq(variables['Build.Reason'], 'PullRequest'), eq(variables['Build.Reason'], 'Manual')))
+            displayName: 'Mend Scanning'
+            inputs:
+              script: 'java -jar wss-unified-agent.jar -c wss-unified-agent.config -apikey $(ws-apikey) -userkey $(ws-userkey)'
+
+          - task: DotNetCoreCLI@2
+            displayName: Publish
+            condition: and(succeeded(), or(eq('${{ parameters.manuallyDeploy }}', 'true'), eq(variables['Build.Reason'], 'IndividualCI')))
+            inputs:
+              command: publish
+              publishWebProjects: false
+              projects: '**/EY.CapitalEdge.ChatOrchestrator.csproj'
+              arguments: '--no-restore --configuration Release --output $(Build.ArtifactStagingDirectory)'
+
+          - task: PublishBuildArtifacts@1
+            displayName: 'Publish Artifact: build_drop'
+            condition: and(succeeded(), or(eq('${{ parameters.manuallyDeploy }}', 'true'), eq(variables['Build.Reason'], 'IndividualCI')))
+            inputs:
+              ArtifactName: 'build_drop'

@@ -1,0 +1,2 @@
+text: |
+    select * from Nodes where _ID in {list_ids}

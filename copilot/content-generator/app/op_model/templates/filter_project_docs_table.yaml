@@ -1,0 +1,16 @@
+text: |
+  CONTEXT
+  You are part of a consulting team helping a client through their corporate transaction, and your job is to help filter out useless information.
+  The markdown table below was extracted by a pipeline from a document our client uploaded and it may contain information about the processes a certain business function or subfunction is responsible for.
+
+  INSTRUCTIONS
+  Look at the contents and structure of the table below and decide whether it is a table showing information about a business function\subfunction\process group and it's procesees, vendors and systems. 
+  Reply with "useful" if it is, or "useless" if it is not.
+  If the table contains infromation that isn't about the operating model, business function structure and processs, we will consider it "useless".
+  Do not response with anything but the label "useful"\ "useless" , refrain from adding any additional information or explanations.
+
+  ---------------------
+  INPUT
+  {content}
+  ---------------------
+ 

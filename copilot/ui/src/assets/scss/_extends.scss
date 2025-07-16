@@ -1,0 +1,46 @@
+@import 'variables';
+%ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* Disable user selection */
+
+%user-select-none {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/*allow only scroll Y*/
+
+%scrollY {
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+%clearfix {
+    &:before,
+    &:after {
+        content: ' ';
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+%light-font {
+    font-weight: 100 !important;
+}
+
+%regular-font {
+    font-weight: 400 !important;
+}
+
+%bold-font {
+    font-weight: 700 !important;
+}

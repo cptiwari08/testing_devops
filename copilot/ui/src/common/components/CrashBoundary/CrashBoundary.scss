@@ -1,0 +1,26 @@
+@import '../../../assets/scss/base.scss';
+
+.crash-boundary-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  box-sizing: border-box;
+  color: $red-600;
+  font-size: $fontSize16;
+}
+
+@media (min-width: 320px) {
+  .crash-boundary-info {
+      font-size: calc(10px + 1vmin);
+  }
+}
+
+@media (min-height: 300px) {
+  .crash-boundary-info {
+      min-height: 100vh;
+      flex-direction: column;
+      line-height: 1.4;
+  }
+}

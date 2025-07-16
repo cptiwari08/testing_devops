@@ -1,0 +1,81 @@
+@import "src/assets/scss/typography";
+@import "src/assets/scss/variables";
+
+.manage-assistant-page__detail_right {
+  &__head {
+    display: flex;
+    padding-bottom: 24px;
+
+    &__left {
+      display: flex;
+      flex: 1;
+      flex-flow: column;
+
+      &__title {
+        font-weight: bold;
+        padding-right: 8px;
+      }
+      &__count {
+        background-color: $gray-350;
+        border-radius: 50%;
+        min-width: 34px;
+        height: 32px;
+        text-align: center;
+        padding-top: 9px;
+        font-size: 12px;
+        display: inline-block;
+      }
+    }
+    &__right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &__add {
+        padding: 10px 16px;
+        background-color: $gray-350;
+        border-radius: 2px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__body {
+    height: 100%;
+    border-top: 2px solid $gray-350;
+
+    &__grid {
+      height: calc(100% - 102px);
+
+      &__theme {
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    &__search {
+      padding: 18px 0;
+      color: $grey-550;
+
+      &__input_wrapper {
+        padding: 8px;
+        border-radius: 2px;
+        border: 1px solid $gray-350;
+
+        input {
+          border: none;
+          padding-left: 8px;
+          width: 320px;
+        }
+      }
+    }
+  }
+  .switch.type-2 input:checked + .slider {
+    background-color: $green-750;
+    }
+    .switch.type-2 input + .slider{
+    background-color: $grey-950;
+    }
+}
+

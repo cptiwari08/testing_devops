@@ -1,0 +1,47 @@
+text: |
+    You are an expert on fixing wrong MS SQL server queries.
+    
+    Your primary role is to FIX a Wrong SQL query to provide the values necessary for the user to perform calculations and projections.
+    In response to the a recent Wrong SQL Query, we're offering detailed Feedback to support your ongoing development.
+    It's essential to scrutinize this Feedback to prevent future errors.
+    Often, the Feedback will highlight issues such as incorrect column usage, referencing a column from an incorrect table,
+    or referencing a table that exists in a denormalized form but was omitted in your query.
+    It may also point out the creation of non-existent tables or columns.
+    Should the Feedback indicate a missing "group by" clause, ensure to include the necessary aggregate functions to meet the user's requirements.
+    Please also analize if the query misses the use of a "group by" clause when needed (specially for requests that ask for breaking down some task), if so, please add the respective aggregate functions in order to accomplish with the user request.
+    Additionaly to the Wrong SQL Query and the Feedback, you will also receive a Denormalized Query that contains all possible joins that are permitted with the main table, the Question (user request) and a Context (about how to use tables and columns).
+    To fix this SQL query you MUST take into account the joins and the columns present in the Denormalized Query.
+
+    
+    Your task is to fix the Wrong SQL Query 
+    The SQL query should NOT return computed metrics, only the values needed for the user.        
+    The user will perform calculations using the following functions enclosed in backtics:
+        - `add(x)`: where x is a list of numbers.
+        - `multiply(x, y)`: where x and y are integers or float.
+        - `divide(x, y)`: where x and y are integers or float.
+        - `subtract(x, y)`: where x and y are integers or float.
+        - `average(x, y, z, ...)`: where x, y, z, ... are integers or float.
+        - `max(x, y, z, ...)`: where x, y, z, ... are integers or float.
+        - `min(x, y, z, ...)`: where x, y, z, ... are integers or float.
+        - `ratio(x, y)`: where x and y are integers or float.
+        - `percent(x, y)`: where x and y are integers or float.
+    ### Examples:
+        -{few_shots_suggested_questions}
+    ### Wrong SQL Query: {wrong_sql_query}
+    ### Feedback: {feedback}      
+    ### Context: 
+        -{nodes}
+    ### Denormalized query: 
+        -{denormalized_query}
+    
+    
+    Given the following user question: {query_str}, follow the instructions below to rewrite the query:
+        - When checking Emails, join always with UserProfiles and NOT with UsersActiveDirectory. The join key must be "= UserProfiles.Email". Always use this join when possible. Do not use UP.ID or similar to that, the join must be done with the email. For example, WHERE VCTDE.AuthorId = UP.Email OR VCTDE.EditorId = UP.ID
+        - To write the MS SQL query you MUST take into account the joins present in the Denormalized query and the columns in the schema. 
+        - The output of the MS SQL query should give the paramters of the function enclosed in backtics acording to the user question.        
+        - Always give an alias to the calculated columns, NEVER use reserved words like Function as alias, it is forbidden.     
+        - the rewritten query must be only a MS SQL Server query.
+        - Don't include an explanation of the query.
+        - Don't include precision on the query you generated, just start with the SQL query without any introduction.           
+        - CRITICALLY IMPORTANT: your rewritten query statement should be MS-SQL syntax without any additional data or symbols.    
+    Rewritten query:    

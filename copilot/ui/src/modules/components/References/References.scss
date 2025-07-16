@@ -1,0 +1,127 @@
+@import "/src/assets/scss/variables";
+@import "src/assets/scss/typography.scss";
+
+.references {
+    &__container {
+        display: flex;
+        padding-top: 4px;
+        gap: 4px;
+        flex-flow: wrap;
+        overflow: hidden;
+        max-height: 60px;
+        >* {
+            border: 1px solid;
+            padding: 0 4px 4px 4px;
+            border-radius: 2px;
+            max-width: 180px;
+            text-overflow: ellipsis;
+            text-wrap: nowrap;
+            overflow: hidden;
+            cursor: default;
+            line-height: 1;
+            height:24px;
+            font-family: $ey-font-regular;
+            font-size: $fontSize12;
+        }
+
+        &__text {
+            color:$grey-500;
+            border-color: transparent;
+            font-family: $ey-font-regular;
+            font-weight: 400;
+            line-height: 1.8;
+            font-size: $fontSize12;
+        }
+
+        &__pdf_reference {
+            border-color: $pink-250;
+            color: $dark-pink;
+            cursor: pointer;
+            padding:4px;
+            &:hover {
+                background-color: $light-pink; 
+              }
+        }
+
+        &__file_name_reference {
+            border-color: $blue-250;
+            color: $blue-800;
+            padding:4px;
+            &:hover {
+                background-color:$light-blue
+              }
+        }
+
+        &__project_data_reference {
+            border-color: $blue-50;
+            color: $sky-blue;
+            cursor: pointer;
+            padding:4px;
+            &:hover {
+                background-color: $blue-850; 
+              }
+        }
+
+        &__link_reference {
+            text-decoration: none;
+            color: inherit;
+            padding:4px;
+        }
+
+        .expand{
+            padding: 2px;
+            background-color: $gray-275;
+            color: $grey-500;
+            border-radius: 16px;
+            padding: 5px 8px;
+            font-size: 12px;
+            border: none;
+            cursor: pointer;
+        }
+    }
+    &__showlessShowMore {
+        position: relative;
+    
+        span {
+            position: absolute;
+            right: -20px;
+            top: -26px;
+            padding: 2px;
+            background-color: $gray-275;
+            color: $grey-500;
+            border-radius: 16px;
+            padding: 2px 4px;
+            font-size: 12px;
+            cursor: pointer;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        }
+    }
+    
+    &__refrenceHeight {
+        max-height: none;
+    }
+}
+
+@keyframes loading-animation {
+    0% {
+        background-position: -600px 0
+      }
+      100% {
+        background-position: 600px 0
+      }
+}
+
+.loading {
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: loading-animation;
+    animation-timing-function: linear;
+    background: linear-gradient(to right, #fff 8%, #ccc 18%, #fff 33%);
+    background-size: 600px 104px;
+}
+
+.hide-tooltip{
+    visibility: hidden;
+    z-index: -1;
+}

@@ -1,0 +1,4 @@
+retry:
+  max_attempts: 3
+  delay: 5
+  stop_after_delay: 60

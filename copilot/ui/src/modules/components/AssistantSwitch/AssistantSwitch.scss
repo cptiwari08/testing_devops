@@ -1,0 +1,38 @@
+@import "src/assets/scss/typography";
+@import "src/assets/scss/variables";
+
+.app-toggle{
+    display: flex;
+    justify-content: space-between;
+ 
+    > label{
+        font-weight: bold;
+    }
+ 
+    &__switch{
+        display: inline-block;
+        width: 62px;
+        padding-left: 4px;
+    }
+}
+ 
+.banner__image{
+    width: 100%;
+    max-height: none;
+}
+.manage-assistant-page__detail_left__enable_assistant{
+    height: 316px;
+    padding: 24px 12px;
+    gap: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+.switch.type-2 input:checked + .slider {
+background-color: $green-750;
+}
+.switch.type-2 input + .slider{
+background-color: $grey-950;
+}
+
+}

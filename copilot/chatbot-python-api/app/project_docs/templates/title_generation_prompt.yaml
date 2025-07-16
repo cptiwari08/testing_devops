@@ -1,0 +1,2 @@
+text: |
+    Summarize the content of the provided documents into a concise title that does not exceed 20 words (use maximum 55 characters). Use underscores to connect words, similar to this format: taxes_finance_uk. Every character MUST match this pattern: [a-z0-9_]{{1,30}}. Do not use any special characters or spaces.

@@ -1,0 +1,158 @@
+@import "../../../assets/scss/base.scss";
+@import "/src/assets/scss/variables";
+
+.skeleton-loader {
+  display: flex;
+  flex-direction: column;
+  z-index: 9;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: $white;
+
+  &__banner {
+    height: 130px;
+    margin: 0 15px;
+    background: $gray-325;
+  }
+
+  &__choose-sources {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+
+    gap: 12px;
+
+    &__heading {
+      width: 200px;
+      background-color: $gray-325;
+      height: 22px;
+    }
+
+    &__items {
+      width: 80%;
+      background-color: $gray-325;
+      height: 45px;
+    }
+
+    &__description-heading {
+      width: 200px;
+      background-color: $gray-325;
+      height: 22px;
+    }
+  }
+
+  &__suggestion {
+    flex: 1;
+    padding: 10px 12px;
+
+    &_head-row {
+      display: flex;
+      gap: 12px;
+
+      &_labels {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        .row-1 {
+          width: 241px;
+          height: 26px;
+          background-color: $gray-325;
+        }
+
+        .row-2 {
+          background-color: $gray-325;
+          width: 90px;
+          height: 18px;
+        }
+      }
+
+      &_icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background-color: $gray-325;
+      }
+    }
+
+    &__wrapper {
+      display: flex;
+      padding: 8px 12px 8px 60px;
+      gap: 12px;
+      flex-wrap: wrap;
+      max-height: 198px;
+      overflow: hidden;
+
+      &_item {
+        height: 38px;
+        width: 200px;
+        background: $gray-325;
+      }
+      &_item:nth-child(2n) {
+        width: 400px;
+      }
+    }
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: 180px;
+
+    &__privacy {
+      margin-left: 77px;
+      height: 24px;
+      width: 358px;
+      background: $gray-325;
+    }
+
+    &__ask-question {
+      display: flex;
+      gap: 16px;
+      height: 46px;
+      padding: 0 16px;
+
+      span {
+        background-color: $gray-325;
+      }
+
+      &_icon {
+        width: 46px;
+      }
+
+      &_input {
+        flex: 1;
+      }
+
+      &_send {
+        width: 46px;
+      }
+    }
+
+    &__footer-message {
+      background: $gray-325;
+      height: 78px;
+      margin: 0 78px;
+    }
+  }
+}
+
+.has-loading {
+  background: linear-gradient(-90deg, $grey-50 0%, $grey-200 50%, $grey-50 100%);
+  background-size: 200% 100%;
+  animation: loading 2s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

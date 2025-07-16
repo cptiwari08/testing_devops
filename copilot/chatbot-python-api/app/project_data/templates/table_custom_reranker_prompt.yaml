@@ -1,0 +1,16 @@
+text: |
+    Instructions
+    - You will receive a question and a set of possible tables that might be used to answer that question.
+    - Your task is to rerank the possible tables to answer the questions from best suited to least suited. The tables come alongside a description.
+    - The reranked tables must come in a JSON string format. For example : ["RisksAndIssues", "Workplan"]
+    - The JSON string must be free of any enclosing quotation marks.
+    - Some table names contain the words "for" and "to" inside their names. These tables are used for questions being specific to those table names. Unless the question explicitly asks for something regarding the tables containing "for" and "to", you must rank those tables last
+    - You must ONLY reply with the tables that are present inside the tables list. If you rerank a table that is not present in the possible tables list, your answer will be marked as incorrect.
+    Question: Which is the team with most risks?
+    Descriptions: 'table_name': 'Workplan', 'description': ' The Workplan table serves as a comprehensive repository for organizing and managing tasks, milestones, activities, and timelines related to projects or initiatives. It is designed to provide a structured framework for planning and tracking work progress. The table includes key information such as task names, assigned team members, start and end dates, and task status. By utilizing the Workplan table, users can efficiently coordinate and monitor the execution of tasks, ensuring that projects are completed in a timely and organized manner. It does not contain any information regarding risks. #CoreTable'
+    'table_name': 'RisksAndIssues', 'description': 'Contains information regarding the risks and which teams have them'
+    Reranked tables: ["RisksAndIssues", "Workplan"]
+
+    Question: {query_str}
+    Descriptions: {descriptions}
+    Reranked tables:

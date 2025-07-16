@@ -1,0 +1,60 @@
+
+@import "/src/assets/scss/variables";
+
+  .source_description{
+    padding: 8px 0;
+    position: sticky;
+    top: 77px;
+    background: $white;
+    z-index: 1;
+    
+      &__heading{
+      cursor: pointer;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+
+      span{
+        line-height: 20px;
+        font-size: $fontSize14;
+        color: $link-text;
+        font-weight: 300;
+      }
+      span.open{
+        font-weight: 700;
+      }
+
+      &_icon{
+        padding: 5px;
+        color: $grey-400;
+
+      }
+    }
+
+    &__detail{
+      height: 0;
+      overflow: hidden;
+      padding: 0 25px;
+
+      transition: height 1s;
+      &_item{
+        font-size: $fontSize12;
+        line-height: 18px;
+        padding: 2px 0;
+
+        span{
+          font-weight: 700;
+          color: $black;
+        }
+        p{
+          font-weight: 300;
+          color: $grey-400;
+        }
+      }
+    }
+    hr {
+      border: 0;
+      border-bottom: 1px solid $gray-325;
+      margin-bottom: 0;
+    }
+  }

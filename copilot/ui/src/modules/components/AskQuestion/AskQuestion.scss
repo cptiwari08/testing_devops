@@ -1,0 +1,151 @@
+@import "/src/assets/scss/variables";
+
+.ask-question{
+  background-color: $white;
+  display: flex;
+  padding-right: 10px;
+
+  &__new_topic{
+    align-self: flex-end;
+    margin: 12px 12px 28px 0;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding-left: 9px;
+
+    >span{
+      display: flex;
+    }
+    
+    &_btn{
+      background-color: $bg-color;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 2px;
+      padding: 10px;
+      gap: 10px;
+      display: flex;
+      img{
+        width: 20px;
+        height: 20px;
+      }
+      transition: width 1s;
+      
+      &:hover + .ask-question__new_topic_text{
+        width: 86px;
+      }
+
+      &.disabled {
+        cursor: not-allowed;
+        opacity: 0.6;
+  
+        &:hover + .ask-question__new_topic_text{
+          width: 0px;
+        }
+      }
+    }
+    
+
+    &_text{
+      width: 0;
+      overflow: hidden;
+      text-wrap: nowrap;
+    background: $bg-color;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    transition: width 1s;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    
+    &:hover{
+      width: 86px;
+    }
+    }
+  }
+
+  
+
+  &__section{
+    flex: 1;
+    display: flex;
+    padding: 12px 0 0;
+    gap: 12px;
+    flex-flow: column;
+
+
+    &__data-privacy{
+      font-size: $fontSize12;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+
+      &_message{
+        color: $grey-400;
+      }
+      
+    }
+  
+   &_input_wrapper{
+    display: flex;
+    gap: 12px;
+
+    &_input{
+      resize: none;
+      flex: 1;
+      display: flex;
+      border: 1px solid $grey-400;
+      border-radius: 4px;
+      &.disabled {
+        border: 1px solid $grey-700;
+      }
+
+      input{
+        flex: 1;
+        border: none;
+        border-radius: 4px;
+        outline: none;
+        font-size: $fontSize14;
+        padding: 14px 14px;
+        &:disabled {
+          cursor: not-allowed;
+          background: $grey-50;
+          border: 1px solid $grey-700;
+          &::placeholder {
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+
+    &_svg-icon{
+      cursor: pointer;
+      background: $black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 2px;
+      &.disabled {
+        background: $grey-900;
+        border: 1px solid $grey-900;
+        cursor: not-allowed;
+      }
+    }
+   }
+   &_error-wrapper{
+    min-height: 14px;
+    line-height: 0.5;
+    &_error{
+    color: $red-1000;
+    font-size: $fontSize12;
+    }
+   }
+  }
+}
+
+

@@ -1,0 +1,4 @@
+- Verify the relevance and authority of the sources in the `retrieval context` to ensure they match the `input` and are credible.
+- Check the `actual output` for factual accuracy and alignment with the information from the `retrieval context`, as well as for coherence and fluency in the generated response.
+- Assess whether the `actual output` comprehensively addresses the `input` user query without omitting essential details and maintains conciseness and precision.
+- Evaluate the `actual output` for proper use of language and grammar, and ensure it enhances user understanding and engagement with the response.

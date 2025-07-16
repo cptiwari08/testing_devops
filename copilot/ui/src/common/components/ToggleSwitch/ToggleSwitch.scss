@@ -1,0 +1,98 @@
+@import "/src/assets/scss/variables";
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 42px;
+    height: 14px;
+    margin-right: 6px;
+
+    input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+
+        &:checked+.slider {
+            background-color: $green-50;
+        }
+
+        &:checked+.slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(23px);
+            background-color: $green-500;
+        }
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: $grey-300;
+        -webkit-transition: .4s;
+        transition: .4s;
+        border-radius: 34px;
+
+        &:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 0;
+            bottom: -3px;
+            background-color: $grey-800;
+            -webkit-transition: .4s;
+            transition: .4s;
+            border-radius: 50%;
+            box-shadow: 0px 2px 1px -1px $popup-bg, 0px 1px 1px 0px $shadow-color-1, 0px 1px 3px 0px $shadow-color-2;
+        }
+        &.round {
+            border-radius: 34px;
+
+            &:before {
+                border-radius: 50%;
+            }
+        }
+    }
+}
+
+.switch.type-2{
+    width: 36px;
+    height: 20px;
+
+    .slider{
+        &:before{
+            width: 16px;
+            height: 16px;
+            left: 1px;
+            bottom: 2px;
+            background-color: $white;
+        }
+    }
+
+    input+.slider {
+        background-color: $gray-325;
+     }
+
+     input{
+        &:checked+.slider {
+            background-color: $grey-450;
+         }
+
+        &:checked+.slider:before {
+            -webkit-transform: translateX(17px);
+            -ms-transform: translateX(17px);
+            transform: translateX(17px);
+            background-color: $white;
+        }
+     }
+}
+.toggle_disabled{
+    opacity: 0.5;
+    span.slider{
+        cursor: not-allowed;
+    }
+}

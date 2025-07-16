@@ -1,0 +1,23 @@
+$ey-font-regular: "EYInterstate W04 Regular";
+$ey-font-light: "EYInterstate W04 Light";
+$weight-regular: normal;
+$weight-bold: bold;
+$weight-medium: 500;
+$weight-light: lighter;
+
+@font-face {
+  font-family: "EYInterstate W04 Regular";
+  src: url("../fonts/EYInterstateW04Regular.ttf") format("truetype");
+  src: url("../fonts/EYInterstateW04Regular.woff2") format("woff2"),
+    url("../fonts/EYInterstateW04Regular.woff") format("woff"),
+    url("../fonts/EYInterstateW04Regular.svg#EYInterstate-Light") format("svg");
+}
+
+@font-face {
+  font-family: "EYInterstate W04 Light";
+  src: url("../fonts/EYInterstate-Light.eot");
+  src: url("../fonts/EYInterstate-Light.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/EYInterstate-Light.woff2") format("woff2"),
+    url("../fonts/EYInterstate-Light.woff") format("woff"),
+    url("../fonts/EYInterstate-Light.svg#EYInterstate-Light") format("svg");
+}

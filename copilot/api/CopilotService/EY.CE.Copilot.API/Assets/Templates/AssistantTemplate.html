@@ -1,0 +1,243 @@
+﻿<html lang="en">
+<head>
+    <style>
+        @font-face {
+            font-family: "EYInterstate W04 Regular";
+            src: url('{FontPath}EYInterstateW04Regular.ttf') format("truetype");
+            src: url('{FontPath}EYInterstateW04Regular.woff2') format("woff2"), url('{FontPath}EYInterstateW04Regular.woff.woff') format("woff"), url('{FontPath}EYInterstateW04Regular.svg#EYInterstate-Light') format("svg");
+        }
+
+        @font-face {
+            font-family: "EYInterstate W04 Light";
+            src: url('{FontPath}EYInterstate-Light.eot');
+            src: url('{FontPath}EYInterstate-Light.eot?#iefix') format("embedded-opentype"), url('{FontPath}EYInterstate-Light.woff2') format("woff2"), url('{FontPath}EYInterstate-Light.woff') format("woff"), url('{FontPath}EYInterstate-Light.svg#EYInterstate-Light') format("svg");
+        }
+
+        body {
+            font-family: "EYInterstate W04 Light";
+        }
+
+        .copilot-container {
+            min-height: 100vh;
+            margin: 0;
+        }
+
+            .copilot-container .banner-wrapper {
+                position: relative;
+            }
+
+        .copilot-container__middle-section {
+            height: auto;
+        }
+
+        .copilot-container .hide-me {
+            display: none;
+        }
+
+        .messages-list {
+            margin: 5px 8px 5px 5px;
+        }
+
+        .messages-list__user-message__header {
+            text-align: right;
+            overflow: auto;
+        }
+
+            .messages-list__user-message__header > * {
+                float: right;
+                margin-left: 6px;
+            }
+
+        .messages-list__user-message__initials {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #E8E8EC;
+            color: #1A1A24;
+            font-size: 1rem;
+            text-align: center;
+            line-height: 2.5;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .messages-list__user-message .user-profile-image {
+            width: 40px;
+            height: 40px;
+        }
+
+        .messages-list__user-message__heading {
+            color: #2e2e38;
+            font-size: 0.875rem;
+            font-weight: 400;
+            font-size: 14px;
+            font-family: "EYInterstate W04 Regular";
+        }
+
+        .messages-list__user-message__content__text {
+            display: block;
+            text-align: left;
+            background-color: #3a3a4a;
+            padding: 5px;
+            color: #fff;
+            line-height: 1.5;
+            font-size: 16px;
+        }
+
+        .messages-list__assistant-message {
+            width: 80%;
+            margin-right: auto;
+            padding-bottom: 5px;
+        }
+
+        .messages-list__assistant-message__header {
+            padding-top: 5px;
+        }
+
+            .messages-list__assistant-message__header > *:not(:last-child) {
+                margin-right: 12px;
+            }
+
+        .messages-list__assistant-message__heading {
+            color: #2e2e38;
+            font-size: 0.875rem;
+            font-weight: 400;
+            font-family: "EYInterstate W04 Regular";
+            width: 50%;
+        }
+
+        .messages-list__assistant-message__heading-wrapper > * {
+            display: inline-block;
+        }
+
+        .messages-list__assistant-message__dateTime {
+            color: #747480;
+            font-size: 0.75rem;
+            margin-left: 10px;
+        }
+
+        .messages-list__assistant-message__sources {
+            font-size: 0.75rem;
+            margin-left: auto;
+            color: #2e2e38;
+            width: 50%;
+            text-align: right;
+        }
+
+        .messages-list__assistant-message__content__text {
+            border-top: 5px solid white;
+            padding: 5px;
+            display: block;
+            text-align: left;
+            color: #1A1A24;
+            line-height: 1.5;
+            font-size: 1rem;
+            background-color: #F2F2F6;
+        }
+
+            .messages-list__assistant-message__content__text b {
+                font-size: 0.875rem;
+                font-family: "EYInterstate W04 Regular";
+            }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        td {
+            padding: 10px;
+        }
+
+        .assistant {
+            margin-left: 30px;
+        }
+
+        .reference_values {
+            border: 1px solid #a5a5a5;
+        }
+
+            .reference_values p {
+                padding-left: 20px;
+            }
+
+            .reference_values td {
+                white-space: nowrap;
+            }
+
+        .hr hr {
+            height: 1px;
+            border: 0;
+            background-color: #E8E8EC;
+        }
+
+        .references__container__text {
+            color: #2e2e38;
+            font-size: 0.875rem;
+            font-weight: 400;
+            font-family: "EYInterstate W04 Regular";
+        }
+
+        .reference_bullet_point {
+            width: 7px;
+            height: 7px;
+            margin-bottom: 10px;
+        }
+
+        .references__container__pdf_reference {
+            text-align: left;
+        }
+
+        .reference_bullet_point img {
+            width: 6px;
+            height: 6px;
+        }
+        .contentTable {
+            border: 1px solid black;
+        }
+
+            .contentTable th {
+                border: 1px solid black;
+                text-align: left;
+            }
+
+            .contentTable td {
+                border: 1px solid black;
+                text-align: left;
+                padding-left: 0px;
+            }
+
+        h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, ol, p {
+            padding-top: 0px;
+            padding-bottom: 0px;
+            margin: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <div class="assistant">
+            <h2>
+                Capital Edge Assistant
+            </h2>
+            <h5>
+                AI Guided Projects
+            </h5>
+        </div>
+        <div class="copilot-container">
+            <div class="banner-wrapper">
+                <div class="banner">
+                    <img class="banner__image" src='{ImagePath}banner.jpg' alt="banner image">
+                </div>
+            </div>
+            <div class="hr">
+                <hr />
+            </div>
+            <div class="messages-list">
+                {Messages}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

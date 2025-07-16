@@ -1,0 +1,76 @@
+@import "/src/assets/scss/variables";
+@import "src/assets/scss/typography.scss";
+
+.suggestion {
+	display: flex;
+	gap: 12px;
+
+	&__title {
+		padding-bottom: 8px;
+	}
+
+	&__heading {
+		color: $grey-500;
+		font-size: $fontSize14;
+		font-weight: 400;
+      	font-size: $fontSize14;
+      	line-height: 2;
+      	font-family: $ey-font-regular;
+	}
+
+	&__dateTime {
+		color: $grey-400;
+		font-size: $fontSize12;
+		margin-left: 10px;
+	}
+
+	&__sub-heading {
+		padding-bottom: 8px;
+		display: flex;
+		gap: 4px;
+
+		&__content {
+			font-size: $fontSize12;
+			color: $grey-400;
+		}
+	}
+
+	&__boxes {
+		border-radius: 2px;
+		border: 1px solid $grey-700;
+		&:hover {
+			background: $grey-50;
+			cursor: pointer;
+		}
+	}
+
+	&__text {
+		color: $grey-450;
+		font-size: $fontSize14;
+		padding: 10px;
+		&:hover{
+			color: $grey-550
+		}
+	}
+
+	&__suggestionBox-container {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+		padding-right: 8px;
+	}
+	&__lightbubl_icon{
+		width: 16px;
+		height: 16px;
+	}
+	&__refresh_icon{
+		margin-top: 8px;
+		color: $grey-400;
+		font-size: $fontSize14;
+		line-height: 20px;
+		a{
+			cursor: pointer;
+			color: $link-text;
+		}
+	}
+}

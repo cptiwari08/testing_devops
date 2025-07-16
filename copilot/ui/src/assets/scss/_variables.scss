@@ -1,0 +1,456 @@
+$shadow-color: #c4c4cd59;
+$bg-color: #FAFAFC;
+$app-bg : #000;
+$black :#1A1A24;
+$white : #fff;
+$yellow-400 :#FFE600;
+
+$grey-50: #FAFAFC;
+$grey-100: #F6F6FA;
+$grey-200: #EAEAF2;
+$grey-225: #E7E7EA;
+$grey-250: #E1E1E6;
+$gray-275: #F2F2F6;
+$grey-300: #C4C4CD;
+$gray-325: #E8E8EC;
+$gray-350: #F3F3F5;
+$grey-400: #747480;
+$grey-450: #3A3A4A;
+$grey-480: #585860;
+$grey-500: #2E2E38;
+$grey-550: #2E2E3C;
+$grey-580: #282836;
+$grey-600: #23232F;
+$grey-700: #D8D8DC;
+$grey-800: #5D5D69;
+$grey-900: #BDBDC5;
+$grey-950:#7F7F91;
+$grey-secondary-disabled:#9897A6;
+
+$green-50:  #9ae5b4;
+$green-100: #8CE8AD;
+$green-200: #57E188;
+$green-300: #34C768;
+$green-400: #2DB757;
+$green-500: #189D3E;
+$green-600: #168736;
+$green-700: #13652A;
+$green-750: #26A04B;
+
+$blue-50: #7CD4FD;
+$blue-100: #87D3F2;
+$blue-200: #4EBEEB;
+$blue-250: #A4BCFD;
+$blue-300: #35A4E8;
+$blue-400: #188CE5;
+$blue-450 : #2f53f0;
+$blue-500: #1777CF;
+$blue-600: #155CB4;
+$blue-700: #082C65;
+$blue-800: #444ce7;
+$blue-850:#f0f9ff;
+$sky-blue: #026AA2;
+$light-blue:#eef4ff;
+;
+
+$red-100: #FF9A91;
+$red-200: #FF736A;
+$red-300: #F95D54;
+$red-400: #FF4136;
+$red-500: #E0362C;
+$red-600: #B9251C;
+$red-700: #7A130D;
+$red-800: #EB1700;
+$red-900: #CF4044;
+$red-1000: #F97066;
+$red-1100: #EA011D;
+
+$orange-100: #FFB46A;
+$orange-200: #FF9831;
+$orange-300: #FF810A;
+$orange-400: #FF6D00;
+$orange-500: #F76900;
+$orange-600: #EB4F00;
+$orange-700: #BC2F00;
+$orange-750:#D07200;
+$orange-warning: #ED6500;
+
+
+
+$bot-bg : #1B1B1B;
+$link-text: #0086C9;
+$bot-color : #BABABA;
+$bubble-grey :#D9D9D9;
+$serach-bg: #f6f6fa;
+$disabled : #d4d4d4;
+$error-color: #F04438;
+
+$colors :#42A5F5 #2196F3 #1E88E5 #1976D2 #1565C0;
+
+$error: $red-300;
+$rhythm: 8px !default;
+$body-color: $white;
+$primary-font: 'ey_interstate';
+$disabled-text: $grey-400; // Font Color for disabled elements.
+$branding: $yellow-400; // Primary Branding color. Used for accents.
+
+$table-bg: #282828;
+$modal-bg: #23232F;
+$bg-modal: #2E2E2E;
+$dropbg: #282836;
+$sidebar-bg: #222222;
+$chat-bg: #656579;
+$green-icon: #039855;
+$red-icon: #d92d20;
+
+// Images
+$image-base: "../../assets/images/";
+$background-image-new : $image-base+"bg_new.png";
+$background-image : $image-base+"bg.png";
+
+$ease-in-out: 300ms ease-in-out; // Default transition
+$ease-in-out-fast: 150ms ease-in-out; // Fast transtition
+$ease-in-out-expo: cubic-bezier(1, 0, 0, 1); // Exponential transition
+
+$weight-bold: bold; // Bold font weight.
+$weight-regular: normal; // Regular font weight.
+$weight-light: lighter; // Thin font weight.
+
+
+$like : '../../assets/images/like.png';
+$dislike : '../../assets/images/dont-like.png';
+
+$modal-bg-color: $white; // Modal background color.
+$modal-box-shadox: 0 0 11px 8px rgba(0, 0, 0, 0.38); // Modal box shadow.
+$modal-header-bg-color: $white; // Modal header background color.
+$modal-header-font-color: $grey-500; // Modal header font color.
+$modal-header-border-color: $grey-250; // Modal header border color.
+$modal-header-close-btn-color: $grey-500; // Modal header close button color.
+$modal-header-close-btn-hover-bg-color: $grey-250; // Modal header close button color while hovered or focused.
+$modal-footer-border-color: $grey-250; // Modal footer border color.
+$modal-alt-header-bg-color: $grey-500; // Modal header alternate variation background color.
+$modal-alt-header-font-color: $white; // Modal header alternate variation font color.
+$modal-alt-header-border-color: transparent; // Modal header alternate variation border color.
+$modal-alt-header-close-btn-color: $white; // Modal header alternate variation close button color.
+$modal-alt-header-close-btn-hover-bg-color: $grey-450; // Modal header alternate variation close button color while hovered or focused.
+$modal-action-border:#c3c3cb;
+// Icon Button
+$btn-icon-color: $black; // Icon button color.
+$btn-icon-hover-color: $black; // Icon button color while hovered.
+$btn-icon-hover-bg-color: $grey-250; // Icon button background color while hovered.
+$btn-icon-focus-color: $black; // Icon button color while focused.
+$btn-icon-focus-bg-color: $grey-250; // Icon button background color while focused.
+$btn-icon-disabled-color: $disabled-text; // Icon button color when disabled.
+
+
+// Buttons
+$btn-font-size: 1rem; // Button font size.
+$btn-font-weight: $weight-bold; // Buton font weight.
+$btn-padding: 0.429rem; // Button padding.
+$btn-padding-medium: 0.572rem; // Button for medium size padding.
+$btn-padding-large: 0.715rem; // Button for large size padding.
+
+// Content Switcher
+$content-switcher-hover-bg-color: $grey-250; // Content switcher background color while hovered.
+$content-switcher-hover-font-color: $black; // Content switcher text color while hovered.
+$content-switcher-selected-bg-color: $black; // Content switcher background color when selected.
+$content-switcher-selected-font-color: $white; // Content switcher text color when selected.
+$content-switcher-default-font-color: $grey-500; // Content switcher default font color.
+$content-switcher-default-bg-color: $white; // Content switcher background color.
+$content-switcher-btn-border-color: $black; // Content switcher button border color.
+$content-switcher-disabled-font-color: $grey-400; // Content switcher default font color.
+$content-switcher-disabled-bg-color: $grey-200; // Content switcher default background color.
+
+// Primary Button
+$btn-primary-bg-color: $branding; // Primary button background color.
+$btn-primary-border-color: $grey-450; // Primary button border color.
+$btn-primary-color: $grey-500; // Primary button font color.
+$btn-primary-hover-bg-color: $grey-500; // Primary button background color while hovered.
+$btn-primary-hover-border-color: $grey-500; // Primary button border color while hovered.
+$btn-primary-hover-color: $white; // Primary button font color while hovered.
+$btn-primary-disabled-bg-color: $disabled; // Primary button background color when disabled
+$btn-primary-disabled-border-color: $disabled; // Primary button border color when disabled
+$btn-primary-disabled-color: $disabled-text; // Primary button font color when disabled
+
+// Primary Button (alternative option)
+$btn-primary-alt-bg-color: $grey-500; // Primary button with alternative background color.
+$btn-primary-alt-border-color: $grey-500; // Primary button with alternative border color.
+$btn-primary-alt-color: $white; // Primary button with alternative font color.
+$btn-primary-alt-hover-bg-color: $white; // Primary button with alternative background color while hovered.
+$btn-primary-alt-hover-border-color: $grey-500; // Primary button with alternative border color while hovered.
+$btn-primary-alt-hover-color: $grey-500; // Primary button with alternative font color while hovered.
+$btn-primary-alt-disabled-bg-color: $disabled; // Primary button background color when disabled
+$btn-primary-alt-disabled-border-color: $disabled; // Primary button border color when disabled
+$btn-primary-alt-disabled-color: $disabled-text; // Primary button font color when disabled
+
+// Secondary Button
+$btn-secondary-bg-color: $white; // Secondary button background color.
+$btn-secondary-border-color: $grey-500; // Secondary button border color.
+$btn-secondary-color: $grey-500; // Secondary button font color.
+$btn-secondary-hover-bg-color: $grey-500; // Secondary button background color while hovered.
+$btn-secondary-hover-border-color: $grey-500; // Secondary button border color while hovered.
+$btn-secondary-hover-color: $white; // Secondary button font color while hovered.
+$btn-secondary-focus-bg-color: $grey-500; // Secondary button background color while focused.
+$btn-secondary-focus-border-color: $grey-500; // Secondary button border color while focused.
+$btn-secondary-focus-color: $white; // Secondary button font color while focused.
+$btn-secondary-disabled-bg-color: $disabled; // Secondary button background color when disabled.
+$btn-secondary-disabled-border-color: $disabled; // Secondary button border color when disabled.
+$btn-secondary-disabled-color: $disabled-text; // Secondary button font color when disabled.
+
+// Warning Button
+$btn-warn-bg-color: $error; // Warning button background color.
+$btn-warn-border-color: $error; // Warning button border color.
+$btn-warn-color: $white; // Warning button font color.
+$btn-warn-hover-bg-color: $grey-500; // Warning button background color while hovered.
+$btn-warn-hover-border-color: $grey-500; // Warning button border color while hovered.
+$btn-warn-hover-color: $white; // Warning button font color while hovered.
+$btn-warn-focus-bg-color: $grey-500; // Warning button background color while focused.
+$btn-warn-focus-border-color: $grey-500; // Warning button border color while focused.
+$btn-warn-focus-color: $white; // Warning button font color while focused.
+$btn-warn-disabled-bg-color: $disabled; // Warning button background color when disabled.
+$btn-warn-disabled-border-color: $disabled; // Warning button border color when disabled.
+$btn-warn-disabled-color: $disabled-text; // Warning button font color when disabled.
+
+// Text Button
+$btn-text-color: $body-color; // Text link font color.
+$btn-text-color-disabled: $disabled-text; // Text link font color for disabled state.
+$btn-text-alt-color: $blue-600; // Alternative text link font color.
+$btn-text-font-size: 1rem; // Text link font size.
+
+
+$app-bg: #1a1a1a;
+$white: #fff;
+$yellow-400: #ffe600;
+
+$grey-200: #eaeaf2;
+$grey-250: #e1e1e6;
+$grey-300: #c4c4cd;
+$grey-350: #1c1c1c;
+$grey-450: #3a3a4a;
+$grey-500: #2e2e38;
+$grey-550: #2e2e3c;
+$grey-600: #23232f;
+$grey-650: #2B2B2F;
+$grey-750: #3a3a4d;
+$black-250: #1A1A1C;
+$black-400: #303030;
+
+
+$table-bg: #282828;
+$modal-bg: #23232F;
+$bg-modal: #2E2E2E;
+$dropbg: #282836;
+
+$green-300: #34C768;
+$green-400: #2ecd70;
+$green-450: #3ec475;
+$green-500: #189d3e;
+$green-600: #168736;
+$orange-300: #ff810a;
+$light-orange: #FCF5F0;
+$red-300: #F95D54;
+$red-400: #e64e3d;
+$red-500: #e0362c;
+$blue-400: #188ce5;
+$blue-450: #2f53f0;
+
+$pink-200: #C981B2;
+$pink-250: #FAA7E0;
+$dark-pink: #C11574;
+$maroon-700: #351C21;
+$purple-900: #42152D;
+$purple-800: #750E5D;
+$purple-700: #5A0A42;
+$purple-600: #922B73;
+$light-pink:#fdf2fa;
+
+$lighter-black: #383843;
+$sidebar-bg: #222222;
+$sidebar-border: #e9eaeb26;
+$nav-bg: #fffd54;
+$light-white: rgba(255, 255, 255, 0.7);
+$popup-bg: #000000d9;
+$shadow-color-1:#00000024;
+$shadow-color-2: #0000001f;
+
+$colors: #42a5f5 #2196f3 #1e88e5 #1976d2 #1565c0;
+
+// Images
+$image-base: "../../assets/media/images/";
+
+$ease-in-out: 300ms ease-in-out; // Default transition
+$ease-in-out-fast: 150ms ease-in-out; // Fast transtition
+$ease-in-out-expo: cubic-bezier(1, 0, 0, 1); // Exponential transition
+
+$weight-bold: bold; // Bold font weight.
+$weight-regular: normal; // Regular font weight.
+$weight-light: lighter; // Thin font weight.
+
+$rhythm: 8px !default;
+$body-color: $white;
+$primary-font: 'EYInterstate W04 Light';
+$form-element-bg-color: $grey-600;
+$ease-in-out-expo: cubic-bezier(1, 0, 0, 1);
+$form-element-border-color: $grey-200;
+$form-element-hover-bg-color: #282836;
+$form-element-disabled-bg-color: $grey-600;
+$form-element-disabled-border-color: $grey-450;
+$form-element-disabled-border-width: 0 0 1px 0;
+$date-picker-disabled-color: #747480;
+$error: $red-300;
+$date-picker-today-mark: $grey-200;
+// $date-picker-tile-now-color:
+$date-picker-view-container-border-color: transparent;
+$date-picker-navigation-bg-color: $grey-550;
+$date-picker-navigation-arrow-color: $white;
+// $date-picker-navigation-hover-bg-color:
+$date-picker-view-container-color: $grey-600;
+$date-picker-tile-color: $white;
+$date-picker-tile-active-hover-bg-color: $black;
+$date-picker-weekday-color: $white;
+$date-picker-tile-active-bg-color: $yellow-400;
+$date-picker-tile-active-color: $grey-500;
+$date-picker-calendar-bg-color: $grey-550;
+$date-picker-neighboring-month-color: #747480;
+$date-picker-weekend-color: #747480;
+$form-element-clear-button-color: $white;
+
+
+// Toggle Switch
+$toggle-switch-off-bg-color: $grey-300; // Toggle Switch background color when is off.
+$toggle-switch-off-control-bg-color: $grey-400; // Toggle Switch control background color when is off.
+$toggle-switch-on-bg-color: $green-300; // Toggle Switch background color when is on.
+$toggle-switch-on-control-bg-color: $green-500; // Toggle Switch control background color when is on.
+$toggle-switch-hover-control-border-color: $grey-500; // // Toggle Switch border color when when is hover. Same on focus.
+$toggle-switch-disabled-control-bg-color: $grey-300; // Toggle Switch control background color when is disabled.
+$toggle-switch-disabled-bg-color: $white; // Toggle Switch slider background color when is disabled.
+$toggle-switch-transition: transform 0.4s ease; // Toggle Switch transition setting.
+
+// Modal
+$modal-bg-color: $grey-600; // Modal background color.
+$modal-overlay-bg-color: rgba(0, 0, 0, 0.5); // Modal overlay background color.
+$modal-box-shadox: 0 0 11px 8px rgba(0, 0, 0, 0.38); // Modal box shadow.
+$modal-header-bg-color: $grey-600; // Modal header background color.
+$modal-header-font-color: $white; // Modal header font color.
+$modal-header-border-color: $grey-550; // Modal header border color.
+$modal-header-close-btn-color: $white; // Modal header close button color.
+$modal-header-close-btn-hover-bg-color: $grey-550; // Modal header close button color while hovered.
+$modal-footer-border-color: $grey-550; // Modal footer border color.
+$modal-alt-header-bg-color: $grey-600; // Modal header alternate variation background color.
+$modal-alt-header-font-color: $white; // Modal header alternate variation font color.
+$modal-alt-header-border-color: $grey-550; // Modal header alternate variation border color.
+$modal-alt-header-close-btn-color: $white; // Modal header alternate variation close button color.
+$modal-alt-header-close-btn-hover-bg-color: $grey-450; // Modal header alternate variation close button color while hovered or focused.
+
+// Icon Button
+$btn-icon-color: $white; // Icon button color.
+$btn-icon-hover-color: $white; // Icon button color while hovered.
+$btn-icon-hover-bg-color: $grey-450; // Icon button background color while hovered.
+$btn-icon-focus-color: $white; // Icon button color while focused.
+$btn-icon-focus-bg-color: $grey-450; // Icon button background color while focused.
+$btn-icon-disabled-color: $grey-400; // Icon button color when disabled.
+
+
+// Buttons
+$btn-font-size: 1rem; // Button font size.
+$btn-font-weight: $weight-bold; // Buton font weight.
+$btn-padding: 0.429rem; // Button padding.
+$btn-padding-medium: 0.572rem; // Button for medium size padding.
+$btn-padding-large: 0.715rem; // Button for large size padding.
+
+// Primary Button
+$btn-primary-bg-color: $yellow-400; // Primary button background color.
+$btn-primary-border-color: $yellow-400; // Primary button border color.
+$btn-primary-color: $black; // Primary button font color.
+$btn-primary-hover-bg-color: $grey-200; // Primary button background color while hovered.
+$btn-primary-hover-border-color: $grey-200; // Primary button border color while hovered.
+$btn-primary-hover-color: $black; // Primary button font color while hovered.
+$btn-primary-disabled-bg-color: #282836; // Primary button background color when disabled
+$btn-primary-disabled-border-color: #282836; // Primary button border color when disabled
+$btn-primary-disabled-color: $grey-400; // Primary button font color when disabled
+
+// Primary Button (alternative option)
+$btn-primary-alt-bg-color: $grey-200; // Primary button background color.
+$btn-primary-alt-border-color: $grey-200; // Primary button border color.
+$btn-primary-alt-color: $black; // Primary button font color.
+$btn-primary-alt-hover-bg-color: $yellow-400; // Primary button background color while hovered.
+$btn-primary-alt-hover-border-color: $yellow-400; // Primary button border color while hovered.
+$btn-primary-alt-hover-color: $black; // Primary button font color while hovered.
+$btn-primary-alt-disabled-bg-color: #282836; // Primary button background color when disabled
+$btn-primary-alt-disabled-border-color: #282836; // Primary button border color when disabled
+$btn-primary-alt-disabled-color: $grey-400; // Primary button font color when disabled
+
+// Secondary Button
+$btn-secondary-bg-color: $black; // Secondary button background color.
+$btn-secondary-border-color: $grey-200; // Secondary button border color.
+$btn-secondary-color: $white; // Secondary button font color.
+$btn-secondary-hover-bg-color: $black; // Secondary button background color while hovered.
+$btn-secondary-hover-border-color: $yellow-400; // Secondary button border color while hovered.
+$btn-secondary-hover-color: $yellow-400; // Secondary button font color while hovered.
+$btn-secondary-focus-bg-color: $black; // Secondary button background color while focused.
+$btn-secondary-focus-border-color: $yellow-400; // Secondary button border color while focused.
+$btn-secondary-focus-color: $yellow-400; // Secondary button font color while focused.
+$btn-secondary-disabled-bg-color: #282836; // Secondary button background color when disabled.
+$btn-secondary-disabled-border-color: #282836; // Secondary button border color when disabled.
+$btn-secondary-disabled-color: $grey-400; // Secondary button font color when disabled.
+
+// Warning Button
+$btn-warn-bg-color: $error; // Warning button background color.
+$btn-warn-border-color: $error; // Warning button border color.
+$btn-warn-color: $white; // Warning button font color.
+$btn-warn-hover-bg-color: $grey-200; // Warning button background color while hovered.
+$btn-warn-hover-border-color: $grey-200; // Warning button border color while hovered.
+$btn-warn-hover-color: $black; // Warning button font color while hovered.
+$btn-warn-focus-bg-color: $grey-200; // Warning button background color while focused.
+$btn-warn-focus-border-color: $grey-200; // Warning button border color while focused.
+$btn-warn-focus-color: $black; // Warning button font color while focused.
+$btn-warn-disabled-bg-color: #282836; // Warning button background color when disabled.
+$btn-warn-disabled-border-color: #282836; // Warning button border color when disabled.
+$btn-warn-disabled-color: $grey-400; // Warning button font color when disabled.
+
+// Text Button
+$btn-text-color: $body-color; // Text link font color.
+$btn-text-color-disabled: $grey-400; // Text link font color for disabled state.
+$btn-text-alt-color: $yellow-400; // Alternative text link font color.
+$btn-text-font-size: 1rem; // Text link font size.
+
+$progress-bar-bg-color: $grey-550; // Progress bar background color.
+$progress-bar-color: $yellow-400; // Progress bar color.
+$progress-bar-circle-border-width: 0.286rem; // Progress bar circle border width.
+$progress-bar-circle-size: 2.857rem; // Progress bar circle size.
+$progress-bar-circle-diameter-size: 1.429rem; // Progress bar circle diameter size (should be 50% of `progress-bar-circle-default-size`)
+$progress-bar-label-color: $white; // Progress bar label color
+
+
+// File Upload
+$file-uploader-background-color: $grey-600; // File upload background color.
+$file-uploader-border-color: $grey-400; // File upload border color.
+$file-uploader-font-color: $grey-300; // File upload font color.
+$file-uploader-font-size: 1rem; // File upload font size.
+$file-uploader-hover-border-color: $grey-200; // File upload border color when hover.
+$file-uploader-icon-color: $grey-300; // File upload icon color.
+$file-uploader-disabled-font-color: $grey-400; // File upload font color when disabled.
+$file-uploader-disabled-background-color: $grey-600; // File upload disbled background color.
+$file-uploader-disabled-border-color: $grey-450; // File upload border color when disabled.
+$file-uploader-disabled-icon-color: $grey-400; // File upload icon color when disabled.
+$file-uploader-invalid-font-color: $error; // File upload font color when invalid.
+$file-uploader-invalid-background-color: $grey-600; // File upload ivalid background color.
+$file-uploader-invalid-icon-color: $error; // File upload icon color when invalid.
+
+// Font size variables
+$fontSize10: 0.625rem;
+$fontSize11: 0.688rem;
+$fontSize12: 0.75rem;
+$fontSize13: 0.813rem;
+$fontSize14: 0.875rem;
+$fontSize15: 0.938rem;
+$fontSize16: 1rem;
+$fontSize17: 1.063rem;
+$fontSize18: 1.125rem;
+$fontSize19: 1.188rem;
+$fontSize20: 1.25rem;
+$fontSize22: 1.375rem;
+$fontSize24: 1.5rem;
+$fontSize25: 1.563rem;
+$fontSize30: 1.875rem;
+$fontSize32: 2rem;

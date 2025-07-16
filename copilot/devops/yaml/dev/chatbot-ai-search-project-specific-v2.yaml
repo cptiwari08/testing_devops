@@ -1,0 +1,27 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: chatbot-ai-search-project-specific-v2 
+  labels:
+    aadpodidbinding: ce5-managed-identity
+spec:
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
+  schedule: "0 3 * * *"
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            aadpodidbinding: ce5-managed-identity
+        spec:
+          containers:
+          - name: chatbot-ai-search-project-specific-v2
+            image: #{ACRName}#.azurecr.io/chatbot-ai-search-project-specific-v2:#{CronjobBuildId}#
+            envFrom:
+            - configMapRef:
+               name: chatbot-ai-search-project-specific
+            imagePullPolicy: Always    
+          restartPolicy: OnFailure
+      backoffLimit: 2

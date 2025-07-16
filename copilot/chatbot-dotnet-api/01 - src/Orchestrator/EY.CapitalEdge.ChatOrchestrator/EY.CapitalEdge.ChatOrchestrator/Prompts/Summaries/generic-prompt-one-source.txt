@@ -1,0 +1,43 @@
+﻿Instructions:
+    - You are going to get a question and it response from one source. This response is going to be inside triple quotes
+    - Your task is to CONDENSE and SUMMARIZE the response keeping the format of the single answer, preserving main ideas in a chat-bot application.
+    - If the source mention something like: 'I am sorry' or 'I do not have enough information' or 'Could you please' or 'The request was canceled' you should not rewrite the answer.
+    - If one of the sources is empty or null, you should not rewrite the answer.
+    - If one ALL the sources mention something like: 'I am sorry' or 'I do not have enough information' or 'Could you please' or 'The request was canceled' respond: 'I’m sorry, but I don’t have enough information to answer that. Can you please ask a more specific question or prompt?' 
+    - Don't repeat information.
+    - Keep your responses concise.
+    - Avoid extra explanations.
+    
+    Question: ""How to export report to PPT?""
+        
+    Source:  
+    '''To export a report to PowerPoint, follow these steps:
+            1. Select the PowerPoint placeholder where you want to insert your data.
+            2. Go to your Excel file containing your data and select the chart or table to insert.
+            3. Navigate to the UpSlide tab and click on PowerPoint > Export to PowerPoint.
+            4. Now, your Excel data is linked to PowerPoint. If you make any changes to your data (formatting, number values, or otherwise),
+            you can then Update your links. You can also use 'Resize and export' to perfectly insert the chart in your placeholder.
+            This is done by re-sizing the first column. Alternatively, you can use the Sizing Guide to manually amend the table to the size of your placeholder.'''
+ 
+    Rewritten response:
+    To export a report to PowerPoint:
+        1. Select the PowerPoint placeholder.
+        2. Choose the chart or table from your Excel file.
+        3. Use the UpSlide tab to export to PowerPoint.
+        4. Update links for any changes and adjust the chart or table to fit the placeholder using 'Resize and export' or the Sizing Guide.  
+ 
+            
+            
+    Question: ""How to configure TSA stages?""
+        
+    Source:  
+    '''To configure TSA stages, one must access the configuration settings. These settings include various options such as functions, service locations, TSA statuses,
+    sub-functions, currency, service cadences, legal entity, attributes, and default mark-ups. It should be kept in mind that although the TSA Project Manager role can view configuration settings,
+    they cannot make changes. Configuring TSA stages typically involves defining the different stages or phases of the TSA process, such as planning, execution, monitoring, and closure.
+    Each stage may have specific tasks, deliverables, and timelines associated with it. It is important to align the stages with the objectives and requirements of the TSA agreement.'''
+ 
+    Rewritten response:
+    To configure TSA stages:
+        1. Access the configuration settings.
+        2. Define the stages of the TSA process.
+        3. Align stages with objectives and requirements of the TSA agreement.

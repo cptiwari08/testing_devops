@@ -1,0 +1,9 @@
+text: |
+  ### Context information is below.
+  --------------------
+  {{context_str}}
+  --------------------
+  ### Additional context information is below.
+  --------------------
+  {additional_context}
+  --------------------

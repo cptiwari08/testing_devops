@@ -1,0 +1,38 @@
+@import "/src/assets/scss/variables";
+
+.toggle-button {
+    flex:1;
+    font-size: $fontSize14;
+    color: $grey-400;
+    justify-content: center;
+    padding: 8px;
+    border: 1px solid $grey-50;
+    background-color: transparent;
+    width:100%;
+
+    &__docs-count{
+        display: inline-block;
+        background: $gray-275;
+        color: $grey-500;
+        padding: 4px;
+        line-height: 8px;
+        margin-left: 5px;
+        border-radius: 16px;
+        font-size: $fontSize10;
+    }
+
+    &:hover {
+        cursor: pointer;
+      }
+  
+    &.selected {
+        color: $white;
+        background-color: $btn-primary-color;
+        border-radius: 2px;
+
+        .toggle-button__docs-count{
+            background-color: $grey-400;
+            color: $gray-275;
+        }
+    }    
+}

@@ -1,0 +1,91 @@
+@import "/src/assets/scss/variables";
+
+.feedback-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px 24px;
+  border: 1px solid $grey-700;
+  border-radius: 12px;
+  font-size: 14px;
+
+  margin: 0 53px 0 60px;
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+
+    &__close {
+      padding: 0 4px;
+      cursor: pointer;
+    }
+  }
+
+  &__body {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    padding-top: 8px;
+
+    &__input {
+      flex: 1;
+      border: 1px solid $grey-700;
+      border-radius: 2px;
+
+      input {
+        border: none;
+        width: 100%;
+        padding: 10px 14px;
+        color: $grey-400;
+        height: 100%;
+      }
+    }
+  }
+
+  &__consent-part {
+    p {
+      padding-top: 4px;
+    }
+    &__toggle {
+      padding: 12px 0 8px;
+      &_label {
+        font-weight: bold;
+      }
+    }
+
+    &__buttons {
+      display: flex;
+      gap: 8px;
+      justify-content: flex-end;
+
+      &__submit_button {
+        background-color: $grey-450;
+        border: 1px solid $grey-450;
+        border-radius: 2px;
+        padding: 10px 14px;
+        cursor: pointer;
+        color: $white;
+      }
+      &__cancel_button {
+        border: 1px solid $grey-700;
+        border-radius: 2px;
+        padding: 10px 14px;
+        cursor: pointer;
+        &:hover {
+          background-color: $grey-50;
+        }
+      }
+    }
+  }
+  &__error {
+    color: $red-1000;
+    text-align: left;
+  }
+}
+.submit-thanks-message {
+  display: flex;
+  padding: 8px 16px;
+  border: 1px solid $grey-700;
+  border-radius: 2px;
+  margin: 0 53px 0 60px;
+}

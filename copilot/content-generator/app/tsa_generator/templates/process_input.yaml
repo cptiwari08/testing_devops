@@ -1,0 +1,11 @@
+text: |
+  From the following list of Project Teams names:
+  ---------------------
+  {inputs}
+  ---------------------
+  Select the name or names that are most related to {target}.
+  Respond with a list of the chosen Project Team names.
+  You should select at least one Project Team name.
+  Format the response in JSON without adding extra information, for example: ["HR", "Human Resources", "HR, Human Resources"].
+
+  Answer:

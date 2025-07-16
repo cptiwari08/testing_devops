@@ -1,0 +1,31 @@
+text: |  
+    [   
+         #### 1. Use this structure when there are all three levels of hierarchy. There must be two levels of hierarchy: summary_tasks_of_grandparent_name and summary_tasks_of_parent_name 
+        {"summary_task": "title of GrandParentName goes here",
+          summary_tasks_of_grandparent_name: [
+            {"summary_task": "title of ParentName goes here",
+                summary_tasks_of_parent_name: [
+                    {"summary_task": "title of ProcessName goes here"},
+                    {"summary_task": "another title of ProcessName goes here"},
+                    {"summary_task": "another title of ProcessName goes here"}
+                ]
+            },
+            {"summary_task": "another title of ParentName goes here",
+                summary_tasks_of_parent_name: [
+                    {"summary_task": "title of ProcessName goes here"},
+                    {"summary_task": "title of ProcessName goes here"},
+                    {"summary_task": "title of ProcessName goes here"}
+                ]
+            },
+            "dipositions": [disposition_1, disposition_2, disposition_3]
+    },  
+        ##### 2. Use this structure when there is no GrandParentName. In this case, summary_tasks_of_parent_name must not exist at all.
+        {"summary_task": "title of another GrandParentName goes here",
+          summary_tasks_of_grandparent_name: [
+            {"summary_task": "title of ParentName goes here"},
+            {"summary_task": "title of ParentName goes here"},
+            {"summary_task": "title of ParentName goes here"}
+            ]
+            , "dipositions": [disposition_1, disposition_2, disposition_3]
+        }   
+    ]

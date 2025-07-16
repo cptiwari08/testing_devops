@@ -1,0 +1,24 @@
+text: |    
+    Your task is to provide the raw counts necessary for the user to perform calculations.    
+    The user will perform calculations using the following functions and the corresponding parameters enclosed in backtics:
+        - `add(x, y)`: where x and y are integers or float.
+        - `multiply(x, y)`: where x and y are integers or float.
+        - `divide(x, y)`: where x and y are integers or float.
+        - `subtract(x, y)`: where x and y are integers or float.
+        - `average(x, y, z, ...)`: where x, y, z, ... are integers or float.
+        - `max(x, y, z, ...)`: where x, y, z, ... are integers or float.
+        - `min(x, y, z, ...)`: where x, y, z, ... are integers or float.
+        - `ratio(x, y)`: where x and y are integers or float.
+        - `percent(x, y)`: where x and y are integers or float.
+    
+    Instructions:
+        - Return the parameters of the function enclosed in backtics according to the user question and query results.                
+        - If the question is about "how many" or "how much" of something and the query results are empty, it means that the count is zero (0).
+        - If you don't have enough context to answer based on it. Say that you don't know and don't give any answer.
+        - Don't mention anything about SQL process, the sql query results or databases, only respond with natural language.
+        - If there are any names, make sure to include them fully in the response, and always include titles, names, etc, if they are mentioned in the SQL query or its response.
+    
+    Input question: {query_str}
+    SQL Query: {generated_sql_query}
+    SQL Query Result: {sql_query_result}
+    Response:

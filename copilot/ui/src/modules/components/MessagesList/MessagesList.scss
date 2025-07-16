@@ -1,0 +1,178 @@
+@import "/src/assets/scss/variables";
+@import "src/assets/scss/typography.scss";
+
+.messages-list {
+  margin: 5px 8px 5px 5px;
+
+  &__user-message {
+    width: 60%;
+    margin-left: auto;
+  
+    &__header {
+      display: flex;
+      justify-content: flex-end;
+      gap: 6px;
+      padding-top: 5px;
+      padding-bottom: 15px;
+    }
+  
+    &__initials {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: $gray-325;
+      color: $black;
+      font-size: $fontSize16;
+      text-align: center;
+      line-height: 2.5;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    .user-profile-image {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  
+    &__heading {
+      color: $grey-500;
+      font-size: $fontSize14;
+      font-weight: 400;
+      font-size: 14px;
+      font-family: $ey-font-regular;
+
+    }
+
+    &__dateTime {
+      color: $grey-400;
+      font-size: $fontSize12;
+      margin-left: 10px;
+    }
+  
+    &__content {
+      text-align: right;
+      padding-top: 7px;
+     
+      &__text {
+        display: block;
+        text-align: left;
+        background-color: $grey-450;
+        padding: 10px;
+        border-radius: 4px;
+        color: $white;
+        line-height: 1.5;
+        font-size: 16px;
+        border-radius: 4px 0px 8px 4px;
+      }
+    }
+  }
+  
+  &__assistant-message {
+    width: 80%;
+    margin-right: auto;
+    padding-bottom: 5px;
+
+    &__header {
+      display: flex;
+      gap: 12px;
+      padding-top: 5px;
+    }
+
+    &__heading {
+      color: $grey-500;
+      font-size: $fontSize14;
+      font-weight: 400;
+      font-family: $ey-font-regular;
+    }
+
+    &__heading-wrapper{
+      display: flex;
+      align-items: baseline;
+    }
+
+    &__dateTime {
+      color: $grey-400;
+      font-size: $fontSize12;
+      margin-left: 10px;
+    }
+
+    &__sources{
+      font-size: $fontSize12;
+      margin-left: auto;
+      color: $grey-500;
+
+    }
+
+    &__content {
+      padding-top: 10px;
+      &__text {
+        background-color: $gray-275;
+        padding: 10px;
+        display: block;
+        text-align: left;
+        color: $black;
+        line-height: 1.5;
+        font-size: $fontSize16;
+        border-radius: 0px 4px 4px 8px;
+        & b {
+          font-size: $fontSize16;
+          font-family: $ey-font-regular;
+        }
+      }
+    }
+  }
+  
+  &__loading {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: $fontSize12;
+  
+    &__icon {
+      color: $black;
+      height: 16px;
+      width: 16px;
+      font-weight: bold;
+    }
+  
+    &__message {
+      color: $grey-400;
+    }
+  }
+
+  &__feedback-part{
+    padding: 12px 0px 12px 0px;
+  }
+  .messages-wrapper{
+    width: 100%;
+  }
+
+  ul, ol {
+    margin-left: 20px;
+  }
+
+  .markdown-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+  }
+  
+  .markdown-content th, .markdown-content td {
+    border: 1px solid $grey-300;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .markdown-content th {
+    background-color: $grey-100;
+  }
+  
+  .markdown-content tr:nth-child(even) {
+    background-color:  $grey-50;
+  }
+  
+  .markdown-content tr:nth-child(odd) {
+    background-color: $white;
+  }
+}

@@ -1,0 +1,48 @@
+@import "/src/assets/scss/variables";
+
+.followup-suggestion{
+    justify-content: flex-end;
+    display: flex;
+    padding-right: 56px;
+    &__left-container{
+        > span{
+            padding: 10px;
+            display: inline-block;
+            color: $grey-400;
+            &:hover{
+                background: $grey-50;
+                cursor: pointer;
+            }
+        }
+    }
+
+    &__right-container{
+        width: 80%;
+        text-align: right;
+        display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+
+        &__boxes {
+            border-radius: 2px;
+            border: 1px solid $grey-700;
+            text-align: left;
+            &:hover {
+                background: $grey-50;
+                cursor: pointer;
+            }
+        }
+    
+        &__text {
+            color: $grey-450;
+            font-size: $fontSize14;
+            padding: 10px;
+            &:hover{
+                color: $grey-550
+            }
+        }
+        
+    }
+
+    
+}

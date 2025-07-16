@@ -1,0 +1,20 @@
+text: |
+  You are an expert in rewriting executive summaries to capture the tone and style of writing in your current report. Your task has two main objectives:
+
+  * Mimic the tone and style of the provided executive summary examples.
+  * Ensure the rewritten executive summary contains no more than $num_words$ words.
+  
+  You will receive a set of different executive summary examples and the current executive summary that you need to rewrite. Capture and mimic as much as possible of the writing style of the executive summary examples and rewrite (if necessary) the current executive summary using that style.
+  DO NOT change the original content and idea of the current executive summary. If you consider it is already written in that style and the length is between the constraint, leave it as it is.
+
+  Executive Summary Examples:
+
+  [
+    {"ExecutiveSummary": "We were surprised to find that GAAP controls were not in place for US operations. This will impact our ability to transition, as the new legal entity structure requires financial reporting with US GAAP standards. We are evaluating the impact and will report back next week."},
+    {"ExecutiveSummary": "This week the Finance team has completed the GAAP reviews and have mitigated a few risks related to the accounting processes at the acquisition. We will focus on getting the Hyperion reporting launched so we are ready for day one!"},
+    $executive_summary_examples$
+  ]
+  Current Executive Summary:
+  $executive_summary$
+
+  Rewritten Executive Summary:

@@ -1,0 +1,78 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chatbot-python-api
+  labels:
+    aadpodidbinding: ce5-managed-identity
+spec:
+  selector:
+    matchLabels:
+      app: chatbot-python-api
+  replicas: 1 # tells deployment to run 2 pods matching the template
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: chatbot-python-api
+        aadpodidbinding: ce5-managed-identity
+    spec:
+      nodeSelector:
+        application: app-platform
+      automountServiceAccountToken: false
+      containers:
+      - name: chatbot-python-api
+        image: #{ACRName}#.azurecr.io/chatbot-help-copilot-python-api:#{ApiAppBuildId}#
+        ports:
+        - containerPort: 8000
+        env:
+        - name: AZURE_CLIENT_ID
+          value: #{azureClientId}#
+        - name: AZURE_TENANT_ID
+          value: #{azureTenantId}#
+        - name: AZURE_CLIENT_SECRET
+          value: #{azureClientSecret}#
+        - name: KEY_VAULT_URL
+          value: #{azureKeyVaultUrl}#
+        - name: APP_INSIGHTS_INSTRUMENTATION_KEY
+          value: #{AppInsightsInstrumentationKey}#
+        - name: AI_SEARCH_API_VERSION
+          value: #{AISApiVersion}#
+        - name: AI_SEARCH_ENDPOINT
+          value: #{AISEndpoint}#
+        - name: AI_SEARCH_API_KEY
+          value: #{AISKey}#
+        - name: EY_IP_PROJECT_CONTEXT_INDEX
+          value: #{EYIPProjectContextIndex}#
+        - name: LOGGING_LEVEL
+          value: #{LoggingLevel}# # Set this value to "ERROR" on Production Environments
+        - name: RETURN_SQL
+          value: "#{ReturnSQL}#" # Set this value to "false" on Production Environments
+        - name: PROJECT_DOCS_RETURN_CHUNKS
+          value: "#{PdReturnChunks}#" # Set this value to "false" on Production Environments
+        imagePullPolicy: Always    
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: chatbot-python-api
+  labels:
+    app: chatbot-python-api
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+    service.beta.kubernetes.io/azure-load-balancer-ipv4: 10.0.11.145
+spec:
+  type: LoadBalancer
+  selector:
+    app: chatbot-python-api
+  ports:
+    - name: http
+      protocol: TCP
+      port: 8000
+      targetPort: 8000

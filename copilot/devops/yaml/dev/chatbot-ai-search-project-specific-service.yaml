@@ -1,0 +1,70 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: chatbot-ais-project-specific-service-config
+data:
+  KEY_VAULT_URL: #{azureKeyVaultUrl}#
+  HOST_PROGRAM_OFFICE: #{baseURL}#/#{ProjectID}#-ce4/api
+  HOST_COPILOT_API: #{baseURL}#/#{ProjectID}#/copilot/api
+  APP_INSIGHTS_INSTRUMENTATION_KEY: #{AppInsightsInstrumentationKey}#
+  AIS_INSTANCE: #{AISIntanceName}#
+  PRJDATA_GENERAL_INDEX: #{ProjectID}#-prjmetadata
+  PRJDATA_SUGGESTION_INDEX: #{ProjectID}#-prjsuggestions
+  PRJGLOSS_INDEX: #{ProjectID}#-prjgloss
+  PRJDATA_INDEX: #{ProjectID}#-prjdata
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chatbot-ais-project-specific-service
+  labels:
+    aadpodidbinding: ce5-managed-identity
+spec:
+  selector:
+    matchLabels:
+      app: chatbot-ais-project-specific-service
+  replicas: 1 # tells deployment to run 2 pods matching the template
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: chatbot-ais-project-specific-service
+        aadpodidbinding: ce5-managed-identity
+    spec:
+      nodeSelector:
+        application: app-platform
+      automountServiceAccountToken: false
+      containers:
+      - name: chatbot-ais-project-specific-service
+        image: #{ACRName}#.azurecr.io/chatbot-ais-project-specific-service:#{AppBuildId}#
+        ports:
+        - containerPort: 8000
+        envFrom:
+        - configMapRef:
+           name: chatbot-ais-project-specific-service-config
+        env:
+        - name: AZURE_CLIENT_ID
+          value: #{azureClientId}#
+        - name: AZURE_TENANT_ID
+          value: #{azureTenantId}#
+        - name: AZURE_CLIENT_SECRET
+          value: #{azureClientSecret}#
+        imagePullPolicy: Always
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: chatbot-ais-project-specific-service
+spec:
+  type: ClusterIP
+  selector:
+    app: chatbot-ais-project-specific-service
+  ports:
+    - port: 80
+      targetPort: 8000

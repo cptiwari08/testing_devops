@@ -1,0 +1,23 @@
+@import '../../../assets/scss/base.scss';
+
+.spinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &--full-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba($white, 0.75);
+        z-index: 9;
+    }
+
+    &__label {
+        margin-top: 10px;
+        font-size: 16px;
+    }
+}

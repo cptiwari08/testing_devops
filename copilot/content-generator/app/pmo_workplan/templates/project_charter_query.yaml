@@ -1,0 +1,2 @@
+text: |
+    SELECT PCD.Title AS Title, PCDC.Title AS Category FROM ProjectCharters PC LEFT JOIN ProjectCharterDetails PCD ON PCD.ProjectCharterId = PC.ID LEFT JOIN ProjectCharterDetailCategories PCDC ON PCD.CategoryId = PCDC.ID LEFT JOIN ProjectCharterStatuses PCS ON PCS.ID = PC.StatusId LEFT JOIN ProjectTeams PT ON PT.ID = PC.ProjectTeamId where PC.ID in ({project_charter_ids}) AND PCS.[Key] = 'APPROVED' AND PC.ProjectTeamId = {project_team_id}

@@ -1,0 +1,3 @@
+- Check if the `actual output` SQL misses the correct use of the Group By clause, specially if there are aggregate functions.
+- Check if the `actual output` SQL misses aggregate functions when there is a group by clause.
+- Verify that the `actual output` SQL is compatible with the schema in the `input`, ensuring correct usage of tables and columns.

@@ -1,0 +1,75 @@
+@import "/src/assets/scss/variables";
+
+.copilot-container{
+    height: 100vh;
+    margin: 0;
+    padding: 0 12px;
+    display: flex;
+    flex-direction: column;
+
+    .banner-wrapper{
+      position: relative;
+    }
+ 
+    &__scrollable-content{
+      flex: 1;
+      overflow-y: scroll;
+    }
+
+    &__scrollable-content::-webkit-scrollbar {
+        width: 6px;
+     }
+
+     &__scrollable-content::-webkit-scrollbar-thumb {
+        background: $grey-200;
+        border-radius: 8px;
+     }
+
+     &__scrollable-content::-webkit-scrollbar-thumb:hover {
+        background: $grey-300;
+    }
+
+     &__scrollable-content::-webkit-scrollbar-track {
+        background: $white;
+     }
+   
+    &__middle-section{
+        flex: 1;
+      }
+
+      .scroll-buttons{
+         &.position-up{
+            position: relative;
+         }
+         > .scroll-button{
+            border: 1px solid $grey-700;
+            border-radius: 2px;
+            position: absolute;
+            padding: 5px 10px;
+            right: 10px;
+            cursor: pointer;
+            background-color: $white;
+            height: 40px;
+            width: 40px;
+            text-align: center;
+            padding: 10px 0;
+            z-index: 5;
+
+            &:hover{
+               background-color: $bg-color;
+            }
+         }
+
+         &__up{
+            bottom: 0;
+         }
+         &__down{
+            bottom: -44px;
+            right: 8px !important;
+         }
+      }
+
+      .hide-me{
+         display: none;
+      }
+  }

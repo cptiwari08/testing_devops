@@ -1,0 +1,8 @@
+text: |
+  You will get a question inside triplet quotes and an user email
+  Your task is to rewrite the question using the user email
+  If the question is in first person, asking for things to "me", please add the phrase: "My user email is {user}" at the end
+  If the question is not in first person, don't rewrite it
+  '''
+  {question}
+  '''

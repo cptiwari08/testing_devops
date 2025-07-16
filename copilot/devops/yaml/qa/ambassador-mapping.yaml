@@ -1,0 +1,28 @@
+---
+apiVersion: getambassador.io/v2
+kind: Mapping
+metadata:
+  name: chatbot-dotnet-api-mapping
+  namespace: ambassador
+spec:
+  bypass_auth: true
+  connect_timeout_ms: 1000000
+  idle_timeout_ms: 1000000
+  prefix: /dotnet-wrapper/
+  rewrite: /
+  service: http://chatbot-dotnet-api.ce4-chatbot:8080
+  timeout_ms: 1000000
+---
+apiVersion: getambassador.io/v2
+kind: Mapping
+metadata:
+  name: chatbot-python-api-mapping
+  namespace: ambassador
+spec:
+  bypass_auth: true
+  connect_timeout_ms: 1000000
+  idle_timeout_ms: 1000000
+  prefix: /python-wrapper/
+  rewrite: /
+  service: http://chatbot-python-api.ce4-chatbot:8000
+  timeout_ms: 1000000

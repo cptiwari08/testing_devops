@@ -1,0 +1,2417 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "GPO Core API",
+    "description": "GPO core services and its endpoints, https://satknowledgeassistant-dev.ey.com/swagger/index.html",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/AverageTimeResponse": {
+      "post": {
+        "tags": [
+          "AverageTimeResponse"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Metrics.Commands.TimeToResolve.GetTimeToResolveRateCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Metrics.Commands.TimeToResolve.GetTimeToResolveRateCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Metrics.Commands.TimeToResolve.GetTimeToResolveRateCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/Bookmarks": {
+      "post": {
+        "tags": [
+          "Bookmarks"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Bookmark.Command.Add.AddBookmarkCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Bookmark.Command.Add.AddBookmarkCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Bookmark.Command.Add.AddBookmarkCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/Bookmarks/{conversationGuid}": {
+      "delete": {
+        "tags": [
+          "Bookmarks"
+        ],
+        "parameters": [
+          {
+            "name": "conversationGuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/Chat": {
+      "post": {
+        "tags": [
+          "Chat"
+        ],
+        "summary": "To manage the specified chat request.",
+        "requestBody": {
+          "description": "The chat request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Chat.Commands.ChatRequestCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Chat.Commands.ChatRequestCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Chat.Commands.ChatRequestCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Chat"
+        ],
+        "summary": "Delete conversations",
+        "requestBody": {
+          "description": "Conversation guids to be deleted.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Chat/SensitiveDataSupport": {
+      "post": {
+        "tags": [
+          "Chat"
+        ],
+        "summary": "To manage the specified chat request.",
+        "requestBody": {
+          "description": "The chat request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Chat.Commands.ChatSensitiveRequestCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Chat.Commands.ChatSensitiveRequestCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Chat.Commands.ChatSensitiveRequestCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Chat/feedback": {
+      "post": {
+        "tags": [
+          "Chat"
+        ],
+        "summary": "Provide feedback to a specific message",
+        "requestBody": {
+          "description": "CreateChatMessageFeedbackCommand",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Chat.Commands.CreateChatMessageFeedback.CreateChatMessageFeedbackCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Chat.Commands.CreateChatMessageFeedback.CreateChatMessageFeedbackCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Chat.Commands.CreateChatMessageFeedback.CreateChatMessageFeedbackCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Chat/handoff-feedback": {
+      "post": {
+        "tags": [
+          "Chat"
+        ],
+        "summary": "To store Handoff feedback from user.",
+        "requestBody": {
+          "description": "The request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Common.Models.HandoffFeedbackModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Common.Models.HandoffFeedbackModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Common.Models.HandoffFeedbackModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Chat/history": {
+      "get": {
+        "tags": [
+          "Chat"
+        ],
+        "summary": "Gets the client chat history.",
+        "parameters": [
+          {
+            "name": "searchText",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Chat/ClosedConversations": {
+      "get": {
+        "tags": [
+          "Chat"
+        ],
+        "summary": "Gets the closed conversations.",
+        "parameters": [
+          {
+            "name": "fromDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Chat/{conversationGuid}/message": {
+      "get": {
+        "tags": [
+          "Chat"
+        ],
+        "summary": "Gets messages of a conversation.",
+        "parameters": [
+          {
+            "name": "conversationGuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Chat/start-conversation": {
+      "post": {
+        "tags": [
+          "Chat"
+        ],
+        "summary": "Create Conversation",
+        "parameters": [
+          {
+            "name": "knowledgeAssistantTag",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/EY.Chatbot.Core.API.Common.Enums.KnowledgeAssistantTag"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Country": {
+      "get": {
+        "tags": [
+          "Country"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/Documents": {
+      "get": {
+        "tags": [
+          "Documents"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/Documents/managed": {
+      "post": {
+        "tags": [
+          "Documents"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Document.Queries.GetManagedDocuments.GetManagedDocumentsQuery"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Document.Queries.GetManagedDocuments.GetManagedDocumentsQuery"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Document.Queries.GetManagedDocuments.GetManagedDocumentsQuery"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/Documents/{documentGuid}/download": {
+      "get": {
+        "tags": [
+          "Documents"
+        ],
+        "summary": "Gets the document details",
+        "parameters": [
+          {
+            "name": "documentGuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Documents/Documentcategories": {
+      "get": {
+        "tags": [
+          "Documents"
+        ],
+        "summary": "Gets messages of a conversation.",
+        "parameters": [
+          {
+            "name": "documentCategoryType",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/EY.Chatbot.Core.API.Common.Enums.DocumentCategoryType"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/Documents/Documentsolutions": {
+      "get": {
+        "tags": [
+          "Documents"
+        ],
+        "summary": "Gets messages of a conversation.",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/User/logout": {
+      "post": {
+        "tags": [
+          "Logout"
+        ],
+        "summary": "Log out API.",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Messages/search": {
+      "post": {
+        "tags": [
+          "Messages"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Messages.Query.SearchMessagesCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Messages.Query.SearchMessagesCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Messages.Query.SearchMessagesCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/discoverfile/save": {
+      "post": {
+        "tags": [
+          "ML"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Chat.Commands.UploadDocument.UploadNewDocumentCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Chat.Commands.UploadDocument.UploadNewDocumentCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Chat.Commands.UploadDocument.UploadNewDocumentCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Opinion": {
+      "post": {
+        "tags": [
+          "Opinion"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Metrics.Commands.ThumbsRate.GetThumbsRateCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Metrics.Commands.ThumbsRate.GetThumbsRateCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Metrics.Commands.ThumbsRate.GetThumbsRateCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/QuestionDetails": {
+      "post": {
+        "tags": [
+          "QuestionDetails"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.QuestionDetails.Queries.GetQuestionDetails.GetQuestionDetailsQuery"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.QuestionDetails.Queries.GetQuestionDetails.GetQuestionDetailsQuery"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.QuestionDetails.Queries.GetQuestionDetails.GetQuestionDetailsQuery"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/QuestionDetails/export": {
+      "post": {
+        "tags": [
+          "QuestionDetails"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.QuestionDetails.Commands.ExportQuestionDetails.ExportQuestionDetailsCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.QuestionDetails.Commands.ExportQuestionDetails.ExportQuestionDetailsCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.QuestionDetails.Commands.ExportQuestionDetails.ExportQuestionDetailsCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/QuestionDetails/UserSelectedColumns": {
+      "post": {
+        "tags": [
+          "QuestionDetails"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.QuestionDetails.Commands.SaveUserSettings.SaveUserSelectedCoulmnsCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.QuestionDetails.Commands.SaveUserSettings.SaveUserSelectedCoulmnsCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.QuestionDetails.Commands.SaveUserSettings.SaveUserSelectedCoulmnsCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/Ratings": {
+      "post": {
+        "tags": [
+          "Ratings"
+        ],
+        "summary": "Rate conversation",
+        "requestBody": {
+          "description": "RatingModel",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.API.Models.RatingModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.API.Models.RatingModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.API.Models.RatingModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/Ratings/filter": {
+      "post": {
+        "tags": [
+          "Ratings"
+        ],
+        "summary": "Get ratings",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Ratings.Queries.GetRatings.GetRatingsQuery"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Ratings.Queries.GetRatings.GetRatingsQuery"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Ratings.Queries.GetRatings.GetRatingsQuery"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/Ratings/export": {
+      "post": {
+        "tags": [
+          "Ratings"
+        ],
+        "summary": "Exports user ratings",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Ratings.Commands.Export.ExportRatingsCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Ratings.Commands.Export.ExportRatingsCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Ratings.Commands.Export.ExportRatingsCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/ResolvedRate": {
+      "post": {
+        "tags": [
+          "ResolvedRate"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Metrics.Commands.ResolveRate.GetResolveRateCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Metrics.Commands.ResolveRate.GetResolveRateCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Metrics.Commands.ResolveRate.GetResolveRateCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/SentimentDistributionRate": {
+      "post": {
+        "tags": [
+          "SentimentDistributionRate"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Metrics.Commands.SentimentDistribution.SentimentDistributionCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Metrics.Commands.SentimentDistribution.SentimentDistributionCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Metrics.Commands.SentimentDistribution.SentimentDistributionCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/ServiceLine": {
+      "get": {
+        "tags": [
+          "ServiceLine"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/TopSourceDocuments": {
+      "post": {
+        "tags": [
+          "TopSourceDocuments"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Metrics.Commands.TopSourceDocuments.TopSourceDocumentsCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Metrics.Commands.TopSourceDocuments.TopSourceDocumentsCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Metrics.Commands.TopSourceDocuments.TopSourceDocumentsCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/TotalConversation": {
+      "post": {
+        "tags": [
+          "TotalConversation"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Metrics.Commands.TotalConversations.TotalConversationCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Metrics.Commands.TotalConversations.TotalConversationCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Metrics.Commands.TotalConversations.TotalConversationCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/TotalEngagedUsers": {
+      "post": {
+        "tags": [
+          "TotalEngagedUsers"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Metrics.Commands.TotalEngagedUsers.TotalEngagedUsersCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Metrics.Commands.TotalEngagedUsers.TotalEngagedUsersCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Metrics.Commands.TotalEngagedUsers.TotalEngagedUsersCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/TotalQuestions": {
+      "post": {
+        "tags": [
+          "TotalQuestions"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Metrics.Commands.TotalQuestions.TotalQuestionsCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Metrics.Commands.TotalQuestions.TotalQuestionsCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Metrics.Commands.TotalQuestions.TotalQuestionsCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/TotalTraffic": {
+      "post": {
+        "tags": [
+          "TotalTraffic"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Metrics.Commands.TotalTraffic.TotalTrafficCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Metrics.Commands.TotalTraffic.TotalTrafficCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Metrics.Commands.TotalTraffic.TotalTrafficCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/TrafficDistributionMaps": {
+      "post": {
+        "tags": [
+          "TrafficDistributionMaps"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Metrics.Commands.TrafficDistributionMaps.TrafficDistributionMapCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Metrics.Commands.TrafficDistributionMaps.TrafficDistributionMapCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Metrics.Commands.TrafficDistributionMaps.TrafficDistributionMapCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/User": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "RoleCodes",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "IsActive",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "PageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "SearchText",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "SortOrder",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/EY.Chatbot.Core.API.Common.Enums.SortOrder"
+            }
+          },
+          {
+            "name": "SortColumn",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.API.Models.CreateUserRoleModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.API.Models.CreateUserRoleModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.API.Models.CreateUserRoleModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/User/session": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "To manage specified user session details.",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/UserFeedbacks": {
+      "post": {
+        "tags": [
+          "UserFeedbacks"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Metrics.Commands.UserFeedback.GetUserFeedbackCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Metrics.Commands.UserFeedback.GetUserFeedbackCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Metrics.Commands.UserFeedback.GetUserFeedbackCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "EY.Chatbot.Core.API.API.Models.CreateUserRoleModel": {
+        "type": "object",
+        "properties": {
+          "users": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.UserRoleModel"
+            },
+            "description": "Gets or sets users and their role codes",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Class for create user role model"
+      },
+      "EY.Chatbot.Core.API.API.Models.RatingModel": {
+        "type": "object",
+        "properties": {
+          "conversationReferenceId": {
+            "type": "string",
+            "description": "Gets or sets conversation reference id",
+            "nullable": true
+          },
+          "rating": {
+            "type": "integer",
+            "description": "Gets or sets rating",
+            "format": "int32"
+          },
+          "ratingComment": {
+            "type": "string",
+            "description": "Gets or sets rating comment",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Class for rating model"
+      },
+      "EY.Chatbot.Core.API.Application.Common.Dtos.QuestionDetails.MessageFeedBackFilterDto": {
+        "type": "object",
+        "properties": {
+          "includeLikes": {
+            "type": "boolean"
+          },
+          "includeDislikes": {
+            "type": "boolean"
+          },
+          "includeNoAction": {
+            "type": "boolean"
+          },
+          "hasFilter": {
+            "type": "boolean",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EY.Chatbot.Core.API.Application.Common.Dtos.QuestionDetails.QuestionDetailsFilterDto": {
+        "type": "object",
+        "properties": {
+          "documentGuids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "nullable": true
+          },
+          "categories": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "nullable": true
+          },
+          "subCategories": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "nullable": true
+          },
+          "subServiceLines": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "solutions": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "nullable": true
+          },
+          "messageFeedbackFilter": {
+            "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Common.Dtos.QuestionDetails.MessageFeedBackFilterDto"
+          },
+          "minResponseTimeInSecs": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "maxResponseTimeInSecs": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "confidenceScoreFilterValue": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EY.Chatbot.Core.API.Application.Common.Dtos.Ratings.RatingsFilterDto": {
+        "type": "object",
+        "properties": {
+          "ratingValues": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
+          "isCommentNotProvided": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EY.Chatbot.Core.API.Application.Common.Models.HandoffFeedbackModel": {
+        "type": "object",
+        "properties": {
+          "conversationReferenceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "isClarified": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EY.Chatbot.Core.API.Application.Features.Bookmark.Command.Add.AddBookmarkCommand": {
+        "type": "object",
+        "properties": {
+          "conversationGuid": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EY.Chatbot.Core.API.Application.Features.Chat.Commands.ChatContext": {
+        "type": "object",
+        "properties": {
+          "question": {
+            "type": "string",
+            "nullable": true
+          },
+          "answers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EY.Chatbot.Core.API.Common.DTO.AnswerHistoryDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EY.Chatbot.Core.API.Application.Features.Chat.Commands.ChatRequestCommand": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "nullable": true
+          },
+          "conversationReferenceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "isSensitiveInfo": {
+            "type": "boolean"
+          },
+          "responseType": {
+            "$ref": "#/components/schemas/EY.Chatbot.Core.API.Common.Enums.ResponseTypesEnum"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EY.Chatbot.Core.API.Application.Features.Chat.Commands.ChatSensitiveRequestCommand": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "nullable": true
+          },
+          "conversationReferenceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "isSensitiveInfo": {
+            "type": "boolean"
+          },
+          "externalQuestionId": {
+            "type": "string",
+            "nullable": true
+          },
+          "chatHistory": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Features.Chat.Commands.ChatContext"
+            },
+            "nullable": true
+          },
+          "responseType": {
+            "$ref": "#/components/schemas/EY.Chatbot.Core.API.Common.Enums.ResponseTypesEnum"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EY.Chatbot.Core.API.Application.Features.Chat.Commands.CreateChatMessageFeedback.CreateChatMessageFeedbackCommand": {
+        "type": "object",
+        "properties": {
+          "messageGuid": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "like": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "feedBack": {
+            "type": "string",
+            "nullable": true
+          },
+          "handOff": {
+            "type": "boolean"
+          },
+          "suggestNextResponse": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EY.Chatbot.Core.API.Application.Features.Chat.Commands.UploadDocument.UploadNewDocumentCommand": {
+        "type": "object",
+        "properties": {
+          "categoryName": {
+            "type": "string",
+            "nullable": true
+          },
+          "subCategoryName": {
+            "type": "string",
+            "nullable": true
+          },
+          "solutionName": {
+            "type": "string",
+            "nullable": true
+          },
+          "fileName": {
+            "type": "string",
+            "nullable": true
+          },
+          "isDiscoverFile": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "currentUser": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EY.Chatbot.Core.API.Application.Features.Document.Queries.GetManagedDocuments.GetManagedDocumentsQuery": {
+        "type": "object",
+        "properties": {
+          "searchText": {
+            "type": "string",
+            "nullable": true
+          },
+          "sortOrder": {
+            "$ref": "#/components/schemas/EY.Chatbot.Core.API.Common.Enums.SortOrder"
+          },
+          "sortColumn": {
+            "type": "string",
+            "nullable": true
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EY.Chatbot.Core.API.Application.Features.Messages.Query.SearchMessagesCommand": {
+        "type": "object",
+        "properties": {
+          "searchText": {
+            "type": "string",
+            "nullable": true
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EY.Chatbot.Core.API.Application.Features.Metrics.Commands.ResolveRate.GetResolveRateCommand": {
+        "type": "object",
+        "properties": {
+          "filter": {
+            "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.FilterDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EY.Chatbot.Core.API.Application.Features.Metrics.Commands.SentimentDistribution.SentimentDistributionCommand": {
+        "type": "object",
+        "properties": {
+          "filter": {
+            "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.FilterDto"
+          },
+          "questionDetailsFilters": {
+            "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Common.Dtos.QuestionDetails.QuestionDetailsFilterDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EY.Chatbot.Core.API.Application.Features.Metrics.Commands.ThumbsRate.GetThumbsRateCommand": {
+        "type": "object",
+        "properties": {
+          "thumbValue": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "filter": {
+            "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.FilterDto"
+          },
+          "questionDetailsFilters": {
+            "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Common.Dtos.QuestionDetails.QuestionDetailsFilterDto"
+          },
+          "searchText": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EY.Chatbot.Core.API.Application.Features.Metrics.Commands.TimeToResolve.GetTimeToResolveRateCommand": {
+        "type": "object",
+        "properties": {
+          "filter": {
+            "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.FilterDto"
+          },
+          "questionDetailsFilters": {
+            "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Common.Dtos.QuestionDetails.QuestionDetailsFilterDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EY.Chatbot.Core.API.Application.Features.Metrics.Commands.TopSourceDocuments.TopSourceDocumentsCommand": {
+        "type": "object",
+        "properties": {
+          "filter": {
+            "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.FilterDto"
+          },
+          "questionDetailsFilters": {
+            "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Common.Dtos.QuestionDetails.QuestionDetailsFilterDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EY.Chatbot.Core.API.Application.Features.Metrics.Commands.TotalConversations.TotalConversationCommand": {
+        "type": "object",
+        "properties": {
+          "filter": {
+            "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.FilterDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EY.Chatbot.Core.API.Application.Features.Metrics.Commands.TotalEngagedUsers.TotalEngagedUsersCommand": {
+        "type": "object",
+        "properties": {
+          "filter": {
+            "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.FilterDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EY.Chatbot.Core.API.Application.Features.Metrics.Commands.TotalQuestions.TotalQuestionsCommand": {
+        "type": "object",
+        "properties": {
+          "filter": {
+            "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.FilterDto"
+          },
+          "questionDetailsFilters": {
+            "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Common.Dtos.QuestionDetails.QuestionDetailsFilterDto"
+          },
+          "searchText": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EY.Chatbot.Core.API.Application.Features.Metrics.Commands.TotalTraffic.TotalTrafficCommand": {
+        "type": "object",
+        "properties": {
+          "filter": {
+            "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.FilterDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EY.Chatbot.Core.API.Application.Features.Metrics.Commands.TrafficDistributionMaps.TrafficDistributionMapCommand": {
+        "type": "object",
+        "properties": {
+          "filter": {
+            "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.FilterDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EY.Chatbot.Core.API.Application.Features.Metrics.Commands.UserFeedback.GetUserFeedbackCommand": {
+        "type": "object",
+        "properties": {
+          "filter": {
+            "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.FilterDto"
+          },
+          "ratingFilters": {
+            "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Common.Dtos.Ratings.RatingsFilterDto"
+          },
+          "searchText": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EY.Chatbot.Core.API.Application.Features.QuestionDetails.Commands.ExportQuestionDetails.ExportQuestionDetailsCommand": {
+        "type": "object",
+        "properties": {
+          "searchText": {
+            "type": "string",
+            "nullable": true
+          },
+          "sortOrder": {
+            "$ref": "#/components/schemas/EY.Chatbot.Core.API.Common.Enums.SortOrder"
+          },
+          "sortColumn": {
+            "type": "string",
+            "nullable": true
+          },
+          "filter": {
+            "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.FilterDto"
+          },
+          "timeZone": {
+            "type": "string",
+            "nullable": true
+          },
+          "questionDetailsFilters": {
+            "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Common.Dtos.QuestionDetails.QuestionDetailsFilterDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EY.Chatbot.Core.API.Application.Features.QuestionDetails.Commands.SaveUserSettings.SaveUserSelectedCoulmnsCommand": {
+        "type": "object",
+        "properties": {
+          "selectedColumns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EY.Chatbot.Core.API.Common.Constants.HeaderMapping"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EY.Chatbot.Core.API.Application.Features.QuestionDetails.Queries.GetQuestionDetails.GetQuestionDetailsQuery": {
+        "type": "object",
+        "properties": {
+          "searchText": {
+            "type": "string",
+            "nullable": true
+          },
+          "sortOrder": {
+            "$ref": "#/components/schemas/EY.Chatbot.Core.API.Common.Enums.SortOrder"
+          },
+          "sortColumn": {
+            "type": "string",
+            "nullable": true
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "filter": {
+            "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.FilterDto"
+          },
+          "questionDetailsFilters": {
+            "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Common.Dtos.QuestionDetails.QuestionDetailsFilterDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EY.Chatbot.Core.API.Application.Features.Ratings.Commands.Export.ExportRatingsCommand": {
+        "type": "object",
+        "properties": {
+          "searchText": {
+            "type": "string",
+            "nullable": true
+          },
+          "sortOrder": {
+            "$ref": "#/components/schemas/EY.Chatbot.Core.API.Common.Enums.SortOrder"
+          },
+          "sortColumn": {
+            "type": "string",
+            "nullable": true
+          },
+          "filter": {
+            "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.FilterDto"
+          },
+          "timeZone": {
+            "type": "string",
+            "nullable": true
+          },
+          "ratingFilters": {
+            "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Common.Dtos.Ratings.RatingsFilterDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EY.Chatbot.Core.API.Application.Features.Ratings.Queries.GetRatings.GetRatingsQuery": {
+        "type": "object",
+        "properties": {
+          "searchText": {
+            "type": "string",
+            "nullable": true
+          },
+          "sortOrder": {
+            "$ref": "#/components/schemas/EY.Chatbot.Core.API.Common.Enums.SortOrder"
+          },
+          "sortColumn": {
+            "type": "string",
+            "nullable": true
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "filter": {
+            "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.FilterDto"
+          },
+          "ratingFilters": {
+            "$ref": "#/components/schemas/EY.Chatbot.Core.API.Application.Common.Dtos.Ratings.RatingsFilterDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EY.Chatbot.Core.API.Application.Features.UserRoleModel": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "roleCodes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EY.Chatbot.Core.API.Application.FilterDto": {
+        "type": "object",
+        "properties": {
+          "startDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "countryGuids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "nullable": true
+          },
+          "userTypes": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
+          "minResponseTimeInSecs": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "maxResponseTimeInSecs": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EY.Chatbot.Core.API.Common.Constants.HeaderMapping": {
+        "type": "object",
+        "properties": {
+          "propertyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "displayName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EY.Chatbot.Core.API.Common.DTO.AnswerHistoryDto": {
+        "type": "object",
+        "properties": {
+          "answer": {
+            "type": "string",
+            "nullable": true
+          },
+          "isMessageLiked": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "score": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "documents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EY.Chatbot.Core.API.Common.DTO.FileHistoryDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EY.Chatbot.Core.API.Common.DTO.FileHistoryDto": {
+        "type": "object",
+        "properties": {
+          "documentName": {
+            "type": "string",
+            "nullable": true
+          },
+          "pages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EY.Chatbot.Core.API.Common.Models.PageModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EY.Chatbot.Core.API.Common.Enums.DocumentCategoryType": {
+        "enum": [
+          "Category",
+          "SubCategory"
+        ],
+        "type": "string"
+      },
+      "EY.Chatbot.Core.API.Common.Enums.KnowledgeAssistantTag": {
+        "enum": [
+          "CE",
+          "DE",
+          "TD",
+          "SAT"
+        ],
+        "type": "string"
+      },
+      "EY.Chatbot.Core.API.Common.Enums.ResponseTypesEnum": {
+        "enum": [
+          "Question",
+          "AgentTransferPrompt",
+          "QueryClarifiedPrompt"
+        ],
+        "type": "string"
+      },
+      "EY.Chatbot.Core.API.Common.Enums.SortOrder": {
+        "enum": [
+          "Ascending",
+          "Descending"
+        ],
+        "type": "string"
+      },
+      "EY.Chatbot.Core.API.Common.Models.PageModel": {
+        "type": "object",
+        "properties": {
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "metaData": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Microsoft.AspNetCore.Mvc.ProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": { }
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "Enter JWT Bearer token",
+        "scheme": "Bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
+}

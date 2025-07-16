@@ -1,0 +1,2 @@
+text: |
+  select DISTINCT PT.Title as ProjectTeam from ProjectTeams PT JOIN TeamTypes TT on TT.ID = PT.TeamTypeId where TT.[Key] = 'PROJECT_MANAGEMENT' AND PT.ManageWorkPlan = 1

@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: copilot-pod
+  labels:
+    aadpodidbinding: ce5-managed-identity
+spec:
+  containers:
+  - name: copilot-service-container
+    image: <image-name>
+    ports:
+    - containerPort: 8080
+    env:
+      - name: SHARED_KEY_VAULT
+        valueFrom:
+          configMapKeyRef:
+            name: copilot-configmap
+            key: sharedKeyVault
+
+
+  - name: copilot-ui-container
+    image: <image-name>
+    ports:
+    - containerPort: 80

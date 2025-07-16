@@ -1,0 +1,122 @@
+[
+    {
+        "text": "When a table contains in its name the string ss, assume that it is of the S&S category. Similarly, when a table contains in its name the string bi, assume it is of the B&I category",
+        "tag": "static",
+        "table": "WorkPlan"
+    },
+    {
+        "text": "When using column function in SQL always use it as [function], for example: userPrompt: What are the service scopes for finance, response: SELECT ServiceInScopeDescription FROM TSAItems WHERE [function] = 'Finance'.",
+        "tag": "static",
+        "table": "TSAItems"
+    },
+    {
+        "text": "For pmo_tool, when the user asks for B&I or Buy & Integrate, you should always filter with 'Buy & Integrate' please, for example: SELECT title FROM WorkPlan WHERE _TransactionType = 'Buy & Integrate'.",
+        "tag": "static",
+        "table": "WorkPlan"
+    },
+    {
+        "text": "When asked for B&I, Buy & Integrate or Sales & Separate for workplan templates in pmo_tool it refers to _transactiontype column",
+        "tag": "static",
+        "table": "WorkPlan"
+    },
+    {
+        "text": "When asked for something in Summary Task or Task in pmo_tool it refers to tasktype column",
+        "tag": "static",
+        "table": "WorkPlan"
+    },
+    {
+        "text": "When you are asked for workplan templates, you should filter _TemplateFile column in pmo_tool.",
+        "tag": "static",
+        "table": "WorkPlan"
+    },
+    {
+        "text": "When you are asked for the functions in the workplan templates, it always refers to the column 'Function' in each table uploaded in pmo_tool",
+        "tag": "static",
+        "table": "WorkPlan"
+    },
+    {
+        "text": "When you are asked about the workplans (not an specific one in particular), you must check all the tables uploaded in the pmo_tool, one by one",
+        "tag": "static",
+        "table": "WorkPlan"
+    },
+    {
+        "text": "When you are asked about differences among the workplan templates, use the pmo_tool to gather randomly 25 projects from the column 'Title'in each table and determine the differences among each set of 25 projects, then, determine how they differentiate between them. Assume that if the table name that you are using to ask contains the string 'EMEIA' or 'emeia' , inquires that the table includes entries related to 'emeia' projects, otherwise, they are US based projects and entries.",
+        "tag": "static",
+        "table": "WorkPlan"
+    },
+    {
+        "text": "When you are asked for the functions in the workplan templates, it always refers to the column 'projectteam' in the table uploaded in pmo_tool",
+        "tag": "static",
+        "table": "WorkPlan"
+    },
+    {
+        "text": "When asked for services use the column 'Title' while using tsa_tool",
+        "tag": "static",
+        "table": "TSAItems"
+    },
+    {
+        "text": "When asked about normative operating models, check for Normative contained in the column _TemplateFile for om_tool.",
+        "tag": "static",
+        "table": "Nodes"
+    },
+    {
+        "text": "When asked about the number of normative operating models in the app, reference to the total number of registers in Nodes table.",
+        "tag": "static",
+        "table": "Nodes"
+    },
+    {
+        "text": "When talking about food companies, it is valid to also interpret it as Consumer Products, Retail sector, and the Food and Beverage industry.",
+        "tag": "static",
+        "table": "Nodes"
+    },
+    {
+        "text": "When asked about initiatives use the column title while using the vc_tool",
+        "tag": "static",
+        "table": "ValueCaptureInitiatives"
+    },
+    {
+        "text": "When asked about levers use the column title while using the vc_tool",
+        "tag": "static",
+        "table": "ValueCaptureInitiatives"
+    },
+    {
+        "text": "When asked about value levers use the column title while using the vc_tool",
+        "tag": "static",
+        "table": "ValueCaptureInitiatives"
+    },
+    {
+        "text": "The type of levers are listed in the column ValueCaptureType for the vc_tool",
+        "tag": "static",
+        "table": "ValueCaptureInitiatives"
+    },
+    {
+        "text": "When talking about manufacturing and other industries, it is valid to search in the _industry column and the title column in nodes.",
+        "tag": "static",
+        "table": "Nodes"
+    },
+    {
+        "text": "The columns in nodes (operating models) will be preceded by a '_', for instance area will be _area",
+        "tag": "static",
+        "table": "Nodes"
+    },
+    {
+        "text": "Take into account the following glossary of acronyms or synonymous to answer, if you do not find an acronym, ask for more information:TSA:Transaction Service Agreement, B&I:Buy & Integrate, S&S:Sell & Separate, PMO:Project Management Office, IMO:Integration Management Office, SMO:Separation Management Office, TMO:Transaction Management Office, VC:Value Capture App, OM:Operating Model, RTO:RIGHT TO OPERATE, TPA:THIRD PARTY AGREEMENTS, CiC:Company In Company, LD:Legal Day, P2P:Procure to Pay, H2R:Hire to Retire, O2C:Order to Cash, Q2C:Quote to Cash, R2R:Record to Report,  LE:Legal Entity,  OP/EP:Opportunity/Engagement Partner, PL:Pursuit Leader, CTL/EM:Case Team Leader/ Engagement Manager, SMPL:Senior Manager Pursuit Leader, PPMD:Partner/Principal/Managing Director, GCSP:Global Client Service Partner, BizOps Team:Business Operations Team, EMS:Engagement Management Services, GDS:Global Delivery Services, SORT:Service Offering Reference Tool, CDD:(Buy-Side) Commercial Due Diligence, NMEO:New Market Entry Opportunity, Sell-Side:Sell-Side Commercial Due Diligence, TDD:Technology Due Diligence, FDD:Financial Due Diligence, AMM:Advanced Manufacturing & Mobility, DI/CHN:Digital Infrastructure, EK12:Education (K-12), EHE:Education (Higher Education), EPE:Education (Private Equity), ESP:Education (Education Service Provider),  FS:Financial Services, GPS:Government & Public Sector, H:Healthcare, LS:Life Sciences, ES:Enterprise Strategy, OG:Energy/Oil & Gas, PE:Private Equity, RCP:Consumer Products & Retail, TMT:Tech, Media & Telecom, SSG:Software Strategy Group, SaT:Strategy & Transactions, EY-P:EY-Parthenon, Strategy:EY-P Strategy, TSE:Transaction Strategy & Execution, TRS:Turnaround & Restructuring Strategy, VME:Valuation, Modeling & Economics, TCF:Transactions & Corporate Finance, ITTS:International Tax and Transaction Services, TAX:Tax, CNS:Business Consulting, ASU:Assurance (Audit), QRM:Quality & Risk Management, PACE:Process for Acceptance of Clients and Engagements, CA/CC:Client Acceptance / Client Continuanc, GIS:Global Independence System, ICD:Independence Consultation Database, GCO:General Counsel Office, Ch1/Ch2:Audit / Non-Audit Client, Ch1 NSA: Not subject to audit, SECRAC:SEC Registered Audit Client, MSA:Master Service Agreement, SOW:Statement of Work, SEL:Single-Engagement Letter, IOM:Inter-Office Memo, DCL:Disclosure & Consent Letter, NRL:Non-Reliance Letter, T&Cs:Terms & Conditions, LoL:Limitation of Liability (in MSA T&Cs), ADR:Alternate Dispute Resolution, U510:Document approving LoL changes, Op Model:Operating Model, Project Plan:Work Plan, Synergy:Value Creation",
+        "tag": "static",
+        "table": ""
+    },
+    {
+        "text": "The types of operating models are listed in column _TransactionType for table Nodes",
+        "tag": "static",
+        "table": "Nodes"
+    },
+    {
+        "text": "When asked for typical functions you should return column Title",
+        "tag": "static",
+        "table": ""
+    },
+    {
+        "text": "Normative operating models is the same as operating models, do not filter for normative. Just use the om_tool to answer.",
+        "tag": "static",
+        "table": "Nodes"
+    }
+]

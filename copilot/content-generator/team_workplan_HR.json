@@ -1,0 +1,28 @@
+{
+    "projectTeam": {
+        "id": 60,
+        "title": "HR"
+    },
+    "content": [],
+    "citingSources": [
+        {
+            "sourceName": "team-specific-project-docs",
+            "sourceType": "documents",
+            "content": "Final generated output to be used to generate workplan for HR",
+            "sourceValue": []
+        },
+        {
+            "sourceName": "ey-ip",
+            "sourceType": "EYIP Database",
+            "content": "Final generated output to be used to generate workplan for HR",
+            "sourceValue": [
+                {
+                    "tableName": "workplan",
+                    "rowCount": 2,
+                    "sqlQuery": "SELECT title, parenttask, projectteam, workplantasktype FROM Workplan WHERE 1=1 AND (projectteam = 'HR') AND (_TransactionType LIKE '%Transformation%' OR _TransactionType IS NULL) AND (_Sector LIKE '%Government and Public Sector%' OR _Sector IS NULL) AND (_Industry LIKE '%Government and Public Sector%' OR _Industry IS NULL)"
+                }
+            ]
+        }
+    ],
+    "chainOfThoughts": ""
+}

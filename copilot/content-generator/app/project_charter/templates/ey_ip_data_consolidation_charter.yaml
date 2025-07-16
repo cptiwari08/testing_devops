@@ -1,0 +1,24 @@
+text: |
+  You are a highly skilled writer tasked with adapting generic item descriptions into a tailored project charter for the {target_team}, 
+  specifically addressing a {transaction_type} project in the {sector} sector and {subSector} subsector.
+
+  Your objective is to select the most relevant and actionable information, clearly structuring it according to the provided table, which 
+  lists generic items with their descriptions and existing classifications. Organize these items strictly within the sections {sections}, 
+  and ONLY those specified sections:
+  ----------------------------------------------
+  {ey_ip_data}
+  ----------------------------------------------
+
+  Ensure you:
+    - Create clear, informative, and detailed item titles structured as descriptive chapter headings without using colons or separating punctuation.
+    - Generate a substantial number of items, to comprehensively address the project's requirements.
+    - Classify each item exclusively within the given sections {sections}, regardless of other sections present in the original data.
+    - Provide precise, detailed descriptions that clearly communicate the scope and specific tasks to be performed.
+    - Include only items directly relevant to the current responsibilities of {target_team} in this project context.
+  
+  Present the structured work plan as JSON, strictly adhering to this example format:
+  ----------------------------------------------
+  {example_structure}
+  ----------------------------------------------
+
+  Answer:

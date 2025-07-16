@@ -1,0 +1,146 @@
+@import "src/assets/scss/typography";
+@import "src/assets/scss/variables";
+
+#root{
+  height: 100%;
+}
+.manage-assistant-page {
+  height: 100%;
+  padding: 0 12px 12px;
+  color: $black;
+  overflow-y: auto;
+  &__action-button {
+    text-align: center;
+    > span {
+      padding: 0 12px;
+      cursor: pointer;
+    }
+  }
+  &__toggle-switch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  &__detail {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+     
+    &_top_left{
+      display: flex;
+    gap: 16px;
+    }
+    &_left {
+      display: flex;
+      gap: 16px;
+      flex: 1;
+      flex-direction: column;
+
+      &__enable_assistant {
+        background-color: $white;
+        flex: 1 1 calc(50% - 8px);
+        height: 350px;
+      }
+      &__edit_source_name {
+        display:flex;
+        flex-direction:column;
+        padding:24px;
+        gap:14px;
+        background-color: $white;
+        flex: 1 1 calc(50% - 8px);
+         height: 316px;
+         color:$black;
+         &__title{
+          color: inherit;
+          font-size: 16px;
+          font-weight: bold;
+         }
+         &__input{
+          border: 1px solid $modal-action-border;
+          border-radius: 4px;
+          padding: 6px;
+
+          input{
+            border: transparent;
+            width: 100%;
+            color: inherit;
+          }
+         }
+         &__reset_btn{
+          padding: 6px 0;
+          text-align: right;
+          display: flex;
+          gap: 12px;
+          justify-content: end;
+          span{
+         border: 1px solid $modal-action-border;
+         background: $gray-350;
+         padding: 6px 0;
+         border-radius: 4px;
+         cursor: pointer;
+         color: $grey-500;
+         width: 94px;
+         text-align: center;
+         display: inline-block
+          }
+         }
+      }
+      &__add_context {
+        background-color: $white;
+        flex: 1 1 100%;
+      }
+    }
+
+    &_right {
+      flex: 2;
+      background-color: $white;
+      padding: 24px;
+    }
+  }
+
+  &__buttons {
+    padding: 12px 0 0;
+    text-align: right;
+    justify-content: end;
+    display: flex;
+    gap: 8px;
+
+    &_cancel {
+      border: 1px solid $grey-300;
+      color: $black;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 4px;
+      line-height: 24px;
+    }
+
+    &_save {
+      background-color: $black;
+      color: $white;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 4px;
+      line-height: 24px;
+    }
+  }
+
+  &__error {
+    color: $error-color;
+    font-size: $fontSize12;
+  }
+  .loading-progress > svg{
+    animation: spin 2s linear infinite;
+  }
+  .disabled{
+    border: 1px solid $grey-300;
+    color: $grey-secondary-disabled;
+    pointer-events: none;
+    cursor: default;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+}

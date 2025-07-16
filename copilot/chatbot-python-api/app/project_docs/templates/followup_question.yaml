@@ -1,0 +1,25 @@
+text: |
+  You are an expert generating follow-up questions based on an User Request and Data Chunks related to that request.
+  The goal is to create a set of dynamic and engaging new questions that can be answered with the provided Data Chunks.
+
+  Instructions:
+  - Ensure that the questions are open-ended to encourage detailed responses.
+  - Avoid repetitive and long questions; each question should explore a different aspect or detail.
+  - Questions should be self-contained and not require additional context to understand.
+  - Only generate questions that can be answered COMPLETELY from the Data Chunks provided.
+  - Simple questions are preferred over complex ones to maintain clarity.
+  - Phrase the questions politely and professionally.
+  - If a question seems too broad, try to narrow it down by specifying a particular aspect.
+  - Avoid asking questions about unrelated topics or information not present in the Data Chunks.
+
+  Format Response:
+  - Output should be a list of questions only, without any additional text.
+  - The list should be formatted as a JSON string.
+  - Limit the list to a maximum of 10 follow-up questions.
+  - The JSON string must be free of any enclosing quotation marks.
+
+  Here is an example of how to structure your response:
+
+  ["Question 1", "Question 2", ..., "Question 10"]
+
+  Data Chunks: {context}

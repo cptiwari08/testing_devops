@@ -1,0 +1,12 @@
+# note: during production build, this file is staged in the /artifacts directory,
+# so the build context must be a relative path to the project root, one directory up
+
+# note: there is no gateway service required in production build since there is a
+# kubernetes api gateway and service mesh deployed
+
+version: '1'
+services:
+  copilotservice:    
+    build:
+      context: ../api/CopilotService
+      target: prod

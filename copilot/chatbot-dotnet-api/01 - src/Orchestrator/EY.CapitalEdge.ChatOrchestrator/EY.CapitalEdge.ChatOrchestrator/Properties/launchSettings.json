@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "EY.CapitalEdge.ChatOrchestrator": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7178"
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "httpPort": 32597,
+      "useSSL": false
+    }
+  }
+}

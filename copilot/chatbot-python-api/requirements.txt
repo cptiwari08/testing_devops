@@ -1,0 +1,40 @@
+# The following commented libraries are used
+# but not specify as they're already requirements
+# for other packages
+# openai
+# tenacity
+
+asyncer==0.0.7
+azure-identity==1.16.0
+azure-keyvault-secrets==4.8
+azure-search-documents==11.4.0
+cryptography==42.0.5
+deepeval==0.21.74
+fastapi==0.111.1
+httpx==0.27.0
+llama-index==0.10.58
+llama-index-agent-openai-legacy==0.1.6
+llama-index-core==0.10.58
+llama-index-embeddings-azure-openai==0.1.11
+llama-index-llms-azure-openai==0.1.10
+llama-index-llms-openai==0.1.27
+llama-index-postprocessor-rankgpt-rerank==0.1.3
+llama-index-storage-chat-store-redis==0.1.3
+llama-index-vector-stores-azureaisearch==0.1.13
+msal==1.27.0
+nltk==3.8.1
+opencensus-ext-azure==1.1.13
+openpyxl==3.1.2
+pathvalidate==3.2.0
+pyodbc==5.1.0
+PyPika==0.48.9
+python-dotenv==1.0.1
+python-jose==3.3.0
+python-multipart==0.0.9
+PyYAML==6.0.1
+sentence-transformers==3.4.1
+scikit-learn==1.6.1
+sql_metadata==2.11.0
+sqlparse==0.5.0
+uvicorn==0.27.0
+xlrd==2.0.1

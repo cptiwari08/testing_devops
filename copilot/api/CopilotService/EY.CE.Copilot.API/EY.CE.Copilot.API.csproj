@@ -1,0 +1,110 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Resources\**" />
+	  <Content Remove="Resources\**" />
+	  <EmbeddedResource Remove="Resources\**" />
+	  <None Remove="Resources\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Assets\Fonts\EYInterstate-Light.eot" />
+	  <None Remove="Assets\Fonts\EYInterstate-Light.svg" />
+	  <None Remove="Assets\Fonts\EYInterstate-Light.woff" />
+	  <None Remove="Assets\Fonts\EYInterstate-Light.woff2" />
+	  <None Remove="Assets\Fonts\EYInterstateW04Regular.svg" />
+	  <None Remove="Assets\Fonts\EYInterstateW04Regular.ttf" />
+	  <None Remove="Assets\Fonts\EYInterstateW04Regular.woff" />
+	  <None Remove="Assets\Fonts\EYInterstateW04Regular.woff2" />
+	  <None Remove="Assets\Images\banner.jpg" />
+	  <None Remove="Assets\Images\ce_assistant_icon.jpg" />
+	  <None Remove="Assets\Images\circle-user-solid.jpg" />
+	  <None Remove="Assets\Images\square-solid.jpg" />
+	  <None Remove="Assets\Templates\AssistantTemplate.html" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="Assets\Fonts\EYInterstate-Light.eot">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Assets\Fonts\EYInterstate-Light.svg">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Assets\Fonts\EYInterstate-Light.woff">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Assets\Fonts\EYInterstate-Light.woff2">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Assets\Fonts\EYInterstateW04Regular.svg">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Assets\Fonts\EYInterstateW04Regular.ttf">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Assets\Fonts\EYInterstateW04Regular.woff">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Assets\Fonts\EYInterstateW04Regular.woff2">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Assets\Images\banner.jpg">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Assets\Images\ce_assistant_icon.jpg">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Assets\Images\circle-user-solid.jpg">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Assets\Images\square-solid.jpg">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Assets\Templates\AssistantTemplate.html">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Azure.AI.OpenAI" Version="2.1.0" />
+		<PackageReference Include="Azure.Extensions.AspNetCore.Configuration.Secrets" Version="1.3.1" />
+		<PackageReference Include="Azure.Identity" Version="1.12.0" />
+		<PackageReference Include="Azure.Storage.Blobs" Version="12.20.0" />
+		<PackageReference Include="EY.SaT.CapitalEdge.Extensions.Logging" Version="1.0.0" />
+		<PackageReference Include="EY.SAT.CE.CoreServices" Version="2.0.0" />
+		<PackageReference Include="EY.SAT.CE.SharePoint" Version="1.0.0" />
+		<PackageReference Include="GemBox.Document" Version="35.0.1869" />
+		<PackageReference Include="GemBox.Pdf" Version="17.0.1545" />
+		<PackageReference Include="HarfBuzzSharp" Version="7.3.0.2" />
+		<PackageReference Include="HarfBuzzSharp.NativeAssets.Linux" Version="7.3.0.2" />
+		<PackageReference Include="Markdig.Signed" Version="0.37.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.8">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.8" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.8">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.SqlServer.DacFx.x64" Version="150.5282.3" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="SkiaSharp" Version="2.88.8" />
+		<PackageReference Include="SkiaSharp.NativeAssets.Linux" Version="2.88.8" />
+		<PackageReference Include="StackExchange.Redis" Version="2.7.33" />
+		<PackageReference Include="System.Net.Http" Version="4.3.4" />
+		<PackageReference Include="System.Text.Json" Version="8.0.4" />
+		<PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\EY.CE.Copilot.Data\EY.CE.Copilot.Data.csproj" />
+	</ItemGroup>
+
+</Project>

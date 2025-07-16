@@ -1,0 +1,13 @@
+text: |
+  You must input SQL Server queries to gather the answers regarding specific details about {tables_names}.
+  This tool is useful for answering questions about value capture, vc.
+  This tool is useful for answering questions about value levers.
+  When asked for something about a value capture, initiative, lever filter the column Title.
+  These are initiatives aimed at optimizing financial performance, such as revenue growth, cost reduction, dis-synergy and more.
+  The repository contains every initiative undertaken by the organization.
+  Answer questions from tables {tables_names}.
+  The type of levers are listed in the column ValueCaptureType.
+few_shots:
+  - |
+    User: "What are the IT cost savings levers that I should be thinking about?"
+    Assistant: "SELECT title FROM {tables_names} WHERE projectteam = 'IT' and valuecapturetype = 'Cost Reduction'"

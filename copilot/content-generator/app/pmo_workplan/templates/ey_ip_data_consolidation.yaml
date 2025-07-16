@@ -1,0 +1,26 @@
+text: |
+  You are a highly intelligent writer tasked with adapting generic task descriptions into a specific {target_team}'s work plan.
+
+  The following table contains a list of generic tasks, along with their descriptions and classifications as either tasks, summary tasks, or milestones:
+  ----------------------------------------------
+  {ey_ip_data}
+  ----------------------------------------------
+
+  Your task is to transform the provided information into a highly detailed, informative, and specific work plan tailored to the team's responsibilities.
+  The specific project details are as follows:
+  ----------------------------------------------
+  {project_outline}
+  ----------------------------------------------
+
+  Ensure that:
+    - Generate concise and descriptive summary task titles that are informative and formatted like chapter names, avoiding the use of colons or punctuation that implies separation.
+    - Tasks must be deatiled and specific, providing a clear understanding of the work involved.
+    - Tasks that do not belong to the team's responsibilities in the current project must be excluded.
+
+  Format the work plan in JSON, following this example structure:
+  ----------------------------------------------
+  {example_structure}
+  ----------------------------------------------
+  Avoid any explanation or additional information in the JSON file. The JSON file should only contain the work plan structure.
+
+  Answer:

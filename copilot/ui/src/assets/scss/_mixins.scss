@@ -1,0 +1,236 @@
+@import 'variables';
+@import 'extends';
+@import 'mediaquery';
+
+@mixin background($image) {
+    background-image: url($image);
+    background-repeat: no-repeat;
+    background-position: top;
+}
+
+@mixin multiline-ellipsis($max-height, $lines: 4, $line-height: 22px, $white-space: unset) {
+    overflow: hidden;
+    line-height: rem($line-height);
+    max-height: $max-height;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $lines;
+    white-space: $white-space;
+}
+
+@mixin placeholder {
+    ::-webkit-input-placeholder {
+        @content;
+    }
+
+    :-moz-placeholder {
+        @content;
+    }
+
+    ::-moz-placeholder {
+        @content;
+    }
+
+    :-ms-input-placeholder {
+        @content;
+    }
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+// Scrollbar starts
+@mixin scrollbars($size: rem(5px),
+    $foreground-color: $grey-300,
+    $background-color: mix($foreground-color, white, 50%)) {
+    &::-webkit-scrollbar {
+        width: $size;
+        height: $size;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $foreground-color;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: $background-color;
+    }
+}
+
+// Scrollbar end
+@mixin border-radius($radius) {
+    border-radius: $radius;
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+}
+
+@mixin border-all($width, $style, $color) {
+    border-width: $width;
+    border-style: $style;
+    border-color: $color;
+}
+
+// Box shadow
+@mixin box-shadow($x-axis: 0, $y-axis: 1px, $blur: 2px, $color: $black) {
+    box-shadow: $x-axis $y-axis $blur $color;
+    -webkit-box-shadow: $x-axis $y-axis $blur $color;
+}
+
+@mixin font-size($size) {
+    font-size: rem($size);
+}
+
+// Media Query
+@mixin ipad {
+    @media only screen and (max-width: 1024px) and (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin ipad-portrait {
+    @media only screen and (max-width: 1024px) and (min-width: 768px) and (orientation: portrait) {
+        @content;
+    }
+}
+
+@mixin large-device {
+    @media only screen and (min-width: 1300px) {
+        @content;
+    }
+}
+
+// End Media Query
+// Transition
+@mixin transition($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -ms-transition: $args;
+    -o-transition: $args;
+    transition: $args;
+}
+
+// a {
+//   @include transition(color 0.3s ease);
+// }
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    $opacity-ie: $opacity * 100;
+    filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+@mixin color-invert {
+    filter: invert(100%);
+}
+
+@mixin no-outline {
+    outline: none;
+}
+
+@mixin no-border {
+    border: none;
+}
+
+@mixin ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@mixin size($w, $h) {
+    width: $w;
+    height: $h;
+}
+
+@mixin square($w) {
+    @include size($w, $w);
+}
+
+@mixin rectangle($w, $h) {
+    @include size($w, $h);
+}
+
+@mixin flex($direction: row, $alignH: center, $alignV: center) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $alignH;
+    align-items: $alignV;
+}
+
+@mixin grid($columns: auto auto, $alignV: center, $gap: auto) {
+    display: grid;
+    grid-template-columns: $columns;
+    align-items: $alignV;
+    grid-gap: $gap;
+}
+
+@mixin centre($axis: 'both') {
+    position: absolute;
+
+    @if $axis=='y' {
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+    @if $axis=='x' {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    @if $axis=='both' {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@mixin border($color, $width) {
+    border: $width solid $color;
+}
+
+@mixin background-image($position, $cover) {
+    background-repeat: no-repeat;
+    background-position: $position;
+    background-size: $cover;
+}
+
+@mixin text-style($size, $style, $weight, $height, $spacing, $align) {
+    font-size: rem($size);
+    font-style: $style;
+    font-weight: $weight;
+    line-height: rem($height);
+    letter-spacing: $spacing;
+    text-align: $align;
+}
+
+
+@mixin object($width, $height, $bg) {
+    width: $width;
+    height: $height;
+    background: $bg;
+}
+
+@mixin transPos($top, $right, $bottom, $left, $transX, $transY) {
+    position: absolute;
+    top: $top;
+    left: $left;
+    right: $right;
+    bottom: $bottom;
+    transform: translate($transX, $transY);
+}
+
+@function rem($size) {
+    $remSize: $size / 14px;
+
+    @return #{$remSize}rem;
+}

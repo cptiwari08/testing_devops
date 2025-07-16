@@ -1,0 +1,40 @@
+text: |
+  CONTEXT 
+  You are an experienced consultant in Strategy and Transactions and are helping organize information from the client's documents regarding their operating model.
+  You are given a table extracted from a document with information about the operating model of the {{parent_function}} function targeted in a disposition. 
+  It should contain information about the process groups and subprocesses inside a business function, as well as, potentially, about the systems used and any third party agreements active for that process group or function.
+  Because of the extraction process, it may contain some potential errors (merged cells, extra symbols at the end of cell text).
+
+  ################ 
+  OBJECTIVE
+  Your goal is to extract from the table the operating model hierarchical relationship between different process levels, as well as systems used and third party agreements.
+  
+  DEFINITIONS
+  - business_function = Business function (e.g., Finance, Tax, HR)
+  - process_group = Process group or sub-function (e.g., Treasury, AP/AR, T&E)
+  - process = Concrete activities (e.g., "Manage Bank Accounts", "T&E Reimbursement")
+  
+  Respect these indications carefully when extracting the hierarchy  
+  1. Maintain and repeat the json lables and stucture as you see it below. All extracted content should be assigned as values to the corresponding keys. 
+  2. The business function,{{parent_function}} should be the topmost level of the hierarchy.
+  3. Identify and use any labels about "Processes" (perhaps of "Level 1" or "Level 2"), "Systems", or "TPA/Vendor", "Assets". 
+  - If the first column of the table contains row-level labels such as "Processes", "Systems", or "TPA/Vendor", assume these labels apply to the corresponding row and all its columns, unless a new label appears. These labels likely repeat or span multiple rows. If no label is present, treat all cells as processes.
+    If a row or set of rows, or alternatively column, is labeled as "System" or "TPA/Vendor", associate the identified system or vendor to the relevant process group(s) or function based on column alignment.
+  - If any columns has headers with such labels, treat all cells in that column in accordance with the header. For example, if a column is labeled "Systems", all cells in that column should be treated as systems.
+  - Do not treat cells with labels like 'Processes' or 'Subprocesses' or tags like 'Considerations' as processes part of the hierarchy. Only use those to understand the hierarchy.  
+  4. Placeholders
+  - If the header row is empty, contains placeholders like 'header1', 'header2' do not include them in the process hierarchy, and treat all elements of that columns as Level 2 processes. 
+  - placeholders for systems or Vendors such as 'TBD' can be treated as systems or vendors.
+  5. Use ALL content in the table you created, do not skip any cells.
+  6. Evaluate each element in the hierarchy to check if any of them may contain multiple processes from accidentally merged cell. If that's the case, split them in different entries at the same level, without rephrasing or losing any content. 
+  7. Drop any entries that have only one character. 
+
+  Reply with the json object in the structure below. Do not send back any reasoning or explanation. Just the json object.
+  Do not include any other text or formatting.
+  ################ 
+  OUTPUT STRUCTURE
+  {output_structure}
+
+  ################ 
+  INPUT DATA
+  {{table_text}}

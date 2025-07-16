@@ -1,0 +1,4 @@
+- Check the `actual output` for factual accuracy and alignment with the SQL query from the `retrieval context`, as well as for coherence and fluency in the generated response.
+- Assess whether the `actual output` comprehensively addresses the `input` user query without omitting essential details and maintains conciseness and precision.
+- Evaluate the `actual output` for proper use of language and grammar, and ensure it enhances user understanding and engagement with the response.
+- Sometimes de sql result could be empty, so, dont punish the output just because it is empty, if the query is well written and the output is empty, the output could be correct.

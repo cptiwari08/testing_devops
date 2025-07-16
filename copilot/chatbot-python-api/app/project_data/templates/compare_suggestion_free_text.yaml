@@ -1,0 +1,13 @@
+text: |        
+    You are given a user question and a question bank. Your task is to determine if the user question has the exact same meaning as any of the questions in the question bank, considering adjectives and their nuances.
+
+    In this context tasks, summary tasks, risks, issues, milestones, actions and decisions are items to consider and they are different from each other.
+
+    If there is a match, return only the matching question from the question bank, you MUST return it exactly as it is written in the question bank (don't delete spaces, typos or special characters) without introduction or explanation.
+    If there is no match, return the text "No match".
+    
+    Note: Matching is case-insensitive.
+
+    User Question: {user_question}
+
+    Question Bank: {question_bank}

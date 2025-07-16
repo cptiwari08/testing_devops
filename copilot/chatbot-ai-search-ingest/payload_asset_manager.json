@@ -1,0 +1,169 @@
+{
+    "tableName": "AssetDocuments",
+    "columnNames": [
+        "Title",
+        "Modified",
+        "ID",
+        "Created",
+        "BlobUrl",
+        "IsFolder",
+        "Size",
+        "IsCheckedOut",
+        "Comments",
+        "TableName",
+        "AuthorId",
+        "EditorId",
+        "ValidFrom",
+        "ValidTo"
+    ],
+    "orderBys": [
+        {
+            "columnName": "Title",
+            "descending": false
+        }
+    ],
+    "orderBysAll": [],
+    "joins": [
+        {
+            "relationshipName": "Area",
+            "table": {
+                "tableName": "Areas",
+                "columnNames": [
+                    "Title",
+                    "ID"
+                ],
+                "orderBys": [],
+                "orderBysAll": [],
+                "joins": [],
+                "groupBys": []
+            }
+        },
+        {
+            "relationshipName": "Region",
+            "table": {
+                "tableName": "Regions",
+                "columnNames": [
+                    "Title",
+                    "ID"
+                ],
+                "orderBys": [],
+                "orderBysAll": [],
+                "joins": [],
+                "groupBys": []
+            }
+        },
+        {
+            "relationshipName": "TransactionType",
+            "table": {
+                "tableName": "TransactionTypes",
+                "columnNames": [
+                    "Title",
+                    "ID"
+                ],
+                "orderBys": [],
+                "orderBysAll": [],
+                "joins": [],
+                "groupBys": []
+            }
+        },
+        {
+            "relationshipName": "Sector",
+            "table": {
+                "tableName": "Sectors",
+                "columnNames": [
+                    "Title",
+                    "ID"
+                ],
+                "orderBys": [],
+                "orderBysAll": [],
+                "joins": [],
+                "groupBys": []
+            }
+        },
+        {
+            "relationshipName": "Industry",
+            "table": {
+                "tableName": "Industries",
+                "columnNames": [
+                    "Title",
+                    "ID"
+                ],
+                "orderBys": [],
+                "orderBysAll": [],
+                "joins": [],
+                "groupBys": []
+            }
+        },
+        {
+            "relationshipName": "Editor",
+            "table": {
+                "tableName": "UsersActiveDirectory",
+                "columnNames": [
+                    "ID",
+                    "Title"
+                ],
+                "orderBys": [],
+                "orderBysAll": [],
+                "joins": [],
+                "groupBys": []
+            }
+        },
+        {
+            "relationshipName": "Author",
+            "table": {
+                "tableName": "UsersActiveDirectory",
+                "columnNames": [
+                    "ID",
+                    "Title"
+                ],
+                "orderBys": [],
+                "orderBysAll": [],
+                "joins": [],
+                "groupBys": []
+            }
+        },
+        {
+            "relationshipName": "Parent",
+            "table": {
+                "tableName": "AssetDocuments",
+                "columnNames": [
+                    "Title",
+                    "ID"
+                ],
+                "orderBys": [],
+                "orderBysAll": [],
+                "joins": [],
+                "groupBys": []
+            }
+        },
+        {
+            "relationshipName": "DocumentState",
+            "table": {
+                "tableName": "TransitionStates",
+                "columnNames": [
+                    "ID",
+                    "Title"
+                ],
+                "orderBys": [],
+                "orderBysAll": [],
+                "joins": [],
+                "groupBys": []
+            }
+        },
+        {
+            "relationshipName": "CheckedOutTo",
+            "table": {
+                "tableName": "UserProfiles",
+                "columnNames": [
+                    "Title",
+                    "ID"
+                ],
+                "orderBys": [],
+                "orderBysAll": [],
+                "joins": [],
+                "groupBys": []
+            }
+        }
+    ],
+    "groupBys": []
+}

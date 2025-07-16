@@ -1,0 +1,80 @@
+@import "/src/assets/scss/variables";
+
+.multi-select {
+  position: relative;
+
+  &__control {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid $grey-300;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  &__value {
+    flex: 1;
+    overflow: hidden;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &__arrow {
+    margin-left: 10px;
+  }
+
+  &__options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid $grey-300;
+    border-radius: 4px;
+    background: $white;
+    z-index: 1000;
+
+    &__custom-checkbox {
+        width: 16px;
+        height: 16px;
+        border: 1px solid $grey-300;
+        border-radius: 4px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 10px;
+        background-color: $white;
+      }
+      
+      &__custom-checkbox.checked {
+        background-color: $black;
+        border-color: $black;
+      }
+
+      &__checkmark {
+        color: $white;
+        font-size: 12px;
+      }
+  }
+
+  &__option {
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+
+  &__option.selected {
+    background-color: $grey-100;
+  }
+
+  &__option:hover {
+    background-color: $grey-200;
+  }
+}
+
+
+
+

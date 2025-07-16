@@ -1,0 +1,16 @@
+@EY.CapitalEdge.HelpCopilot_HostAddress = http://localhost:5279
+
+POST {{EY.CapitalEdge.HelpCopilot_HostAddress}}/HelpCopilot/Session
+Accept: application/json
+
+###
+
+POST {{EY.CapitalEdge.HelpCopilot_HostAddress}}/HelpCopilot/StartConversation
+Accept: application/json
+
+###
+
+POST {{EY.CapitalEdge.HelpCopilot_HostAddress}}/HelpCopilot/Chat
+Accept: application/json
+
+###

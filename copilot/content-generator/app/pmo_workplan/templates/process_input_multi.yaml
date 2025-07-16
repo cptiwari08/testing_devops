@@ -1,0 +1,10 @@
+text: |
+  For every one of following elements provided by the user:
+  ---------------------
+  {inputs}
+  ---------------------
+  Identify and choose the name or names that are most related to each element from the following list of targets: {targets}.
+  Respond with a JSON object where each key is an element provided by the user and the value is a list of most related targets. You should select at least one target for each user element.
+  Format the response in JSON without adding extra information, for example: {"HR": ["HR", "Human Resources", "HR, Human Resources"], "IT": ["Information Technology"]}.
+
+  Answer:

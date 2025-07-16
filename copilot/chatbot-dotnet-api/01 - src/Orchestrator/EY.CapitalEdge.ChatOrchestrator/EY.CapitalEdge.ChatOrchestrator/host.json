@@ -1,0 +1,19 @@
+{
+    "version": "2.0",
+    "logging": {
+      "logLevel": {
+        "Host.Triggers.DurableTask": "Information",
+        "Function": "Information"
+      },
+      "applicationInsights": {
+        "samplingSettings": {
+          "isEnabled": false
+        }
+      }
+    },
+    "extensions": {
+      "durableTask": {
+        "hubName": "%TaskHubName%"
+      }
+    }
+}

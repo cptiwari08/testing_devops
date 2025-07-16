@@ -1,0 +1,21 @@
+text: |
+  You are an expert in correcting formatting.
+  Please review the output and ensure it follows the expected format of a list of bullet points: ["item 1", "item 2", ...]. 
+  If the output is empty, create an empty list. 
+  Do not modify the content; only ensure it adheres to the expected format.
+  Do not add explanations or introductions, just give the output in the expected format.
+
+  Output: This is a single item.
+  Reviewed output: ["This is a single item."]
+
+  Output: item one, item two, item three
+  Reviewed output: ["item one", "item two", "item three"]
+
+  Output:
+    apple
+    banana
+    cherry
+  Reviewed output: ["apple", "banana", "cherry"]
+
+  Output: $output
+  Reviewed output:

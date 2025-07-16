@@ -1,0 +1,33 @@
+text: |
+        {{
+            "process_lvl_1": "{business_function}",
+                "sub_processes":[
+                    {{"process_lvl_2": "Title of process lvl 2 goes here",
+                     "processes": [
+                            "Process Title 1",
+                            "Process Title 2",
+                            "Process Title 3",
+                            "Process Title 4",
+                            "Process Title 5",
+                            "Process Title n",
+                                    ]}},
+                    {{"process_lvl_2": "Another title of process lvl 2 goes here",
+                     "processes": [
+                            "Another Process Title 1",
+                            "Another Process Title 2",
+                            "Another Process Title 3",
+                            "Another Process Title 4",
+                            "Another Process Title 5",
+                            "AnotherProcess Title n",
+                                    ]}},
+                    ...,
+                    {{"process_lvl_2": "Another title of process lvl 2 goes here",
+                     "processes": [
+                            "Another Process Title 1",
+                            "Another Process Title 2",
+                            "Another Process Title 3",
+                            "Another Process Title 4",
+                            "Another Process Title 5",
+                            "Another Process Title n",
+                                    ]}},
+        }}

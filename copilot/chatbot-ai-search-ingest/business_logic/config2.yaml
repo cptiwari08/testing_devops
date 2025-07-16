@@ -1,0 +1,12 @@
+query: "SELECT * FROM _generalContext"
+output_files:
+  load_data: "temp/data.pkl"
+  processed_documents: "temp/processed_documents.pkl"
+field_handler:
+  - name: "tableName"
+    retrievable: true
+    filterable: true
+    searchable: true
+  - name: "tag"
+    retrievable: true
+    filterable: true

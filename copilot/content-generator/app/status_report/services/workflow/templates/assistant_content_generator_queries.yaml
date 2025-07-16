@@ -1,0 +1,7 @@
+text: |
+  SELECT title, description as rules, key, sqlQuery
+  FROM [AssistantContentGeneratorQueries]
+  WHERE
+  generatorType='ProjectStatus'
+  AND
+  isActive is true

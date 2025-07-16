@@ -1,0 +1,63 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chatbot-ais-general-context-service
+  labels:
+    aadpodidbinding: ce5-managed-identity
+spec:
+  selector:
+    matchLabels:
+      app: chatbot-ais-general-context-service
+  replicas: 1 # tells deployment to run 2 pods matching the template
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: chatbot-ais-general-context-service
+        aadpodidbinding: ce5-managed-identity
+    spec:
+      nodeSelector:
+        application: app-platform
+      automountServiceAccountToken: false
+      containers:
+      - name: chatbot-ais-general-context-service
+        image: #{ACRName}#.azurecr.io/chatbot-ais-general-context-service:#{AppBuildId}#
+        ports:
+        - containerPort: 8000
+        env:
+        - name: AZURE_CLIENT_ID
+          value: #{azureClientId}#
+        - name: AZURE_TENANT_ID
+          value: #{azureTenantId}#
+        - name: AZURE_CLIENT_SECRET
+          value: #{azureClientSecret}#
+        - name: KEY_VAULT_URL
+          value: #{azureKeyVault}#
+        - name: AIS_INSTANCE
+          value: #{azureAiSearch}#
+        - name: HOST_PROGRAM_OFFICE
+          value: #{HostProgramOffice}#
+        - name: INDEX_NAME_EYIP
+          value: #{indexNameEyIp}#
+        - name: APP_INSIGHTS_INSTRUMENTATION_KEY
+          value: #{AppInsightsInstrumentationKey}#
+        imagePullPolicy: Always
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: chatbot-ais-general-context-service
+spec:
+  type: ClusterIP
+  selector:
+    app: chatbot-ais-general-context-service
+  ports:
+    - port: 80
+      targetPort: 8000

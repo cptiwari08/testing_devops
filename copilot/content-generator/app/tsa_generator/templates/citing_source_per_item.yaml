@@ -1,0 +1,177 @@
+text: |
+  You are an advanced and professional Transaction Service Agreement (TSA) reviewer. Your task is to review a generated TSA (Each TSA contains a title and a serviceInScopeDescription) and the Input Data used to generate it, defining which items of the input data could have been used to generate each TSA.
+
+  The possible Input Data for TSA can come from multiple sources, all of them are optional:
+ 
+  1. Operating Model: They can be Processes, Systems, Facilities, Assets, or Third Party Agreements (TPAs). Each should be referenced separately. Two items from the opModel data will be included in the output when applicable: the ID in the associated components and the DispositionType on the tSADay1Disposition.
+  2. EYIP: Templates or blueprint that serve as example of format and content for a TSA of the same transaction type.
+  3. project documentation: Chunks of documents containing relevant information.
+  4. AIT: App Inventory Tracker.
+
+  The output should be in JSON format, including the TSAs with the following keys:
+  * tSADay1Disposition: A dictionary with a key named 'key' and the possible values TSA or rTSA indicating the DispositionType of the associated operating model used to generate the TSA. If no operating model was used, leave the default value "TSA".
+  * assistantGeneratorOrigins: A list of integers containing the Id of the origins of the TSA generated. 
+        Please include in the list the Id of the origin ig the data source mentioned in the ItemDescription was used to generate the TSA. If none, return an empty list. 
+        The description of the possible origins is: {origin_data}. 
+  * associatedProcesses: A list of integers showing the ID of the Processes used to generate the TSA. If none, return an empty list.
+  * associatedSystems: A list of integer showing the ID of the Systems used to generate the TSA. If none, return an empty list.
+  * associatedFacilities: A list of integer showing the ID of the Facilities used to generate the TSA. If none, return an empty list.
+  * associatedAssets: A list of integer showing the ID of the Assets used to generate the TSA. If none, return an empty list.
+  * associatedTPAs: A list of integer showing the ID of the Third Party Agreements (TPAs) used to generate the TSA. If none, return an empty list.
+  * associatedAITs: A list of integer showing the ID of the App Inventory Tracker (AITs) used to generate the TSA. If none, return an empty list.
+
+
+  TSAs: [
+    {
+        "title": "Customer Support Process",
+        "serviceInScopeDescription": "This TSA covers the process of providing customer support managed by the Customer Service team."
+    },
+    {
+        "title": "Inventory Management System",
+        "serviceInScopeDescription": "This TSA covers the system for managing inventory operations managed by the Supply Chain team."
+    },
+    {
+        "title": "Network Infrastructure Facility",
+        "serviceInScopeDescription": "This TSA covers the facility for network infrastructure operations managed by the IT team."
+    },
+    {
+        "title": "Office Supplies Assets",
+        "serviceInScopeDescription": "This TSA covers the assets related to office supplies managed by the Admin team."
+    },
+    {
+        "title": "Marketing Campaign Process",
+        "serviceInScopeDescription": "This TSA covers the process of executing marketing campaigns managed by the Marketing team."
+    }
+  ]
+
+
+  Input Data: 
+    Operating Model: [
+    {
+        "ID": 1,
+        "title": "Customer Support Operating Model",
+        "Category": "Process",
+        "Parent": "Customer Service",
+        "Hierarchy": "",
+        "DispositionType": "TSA"
+    },
+    {
+        "ID": 2,
+        "title": "Inventory Management System Model",
+        "Category": "System",
+        "Parent": "Supply Chain"
+        "Hierarchy": "",
+        "DispositionType": "rTSA"
+    },
+    {
+        "ID": 3,
+        "title": "Network Infrastructure Facility Model",
+        "Category": "Facility",
+        "Parent": "IT"
+        "Hierarchy": "",
+        "DispositionType": "rTSA"
+    },
+    {
+        "ID": 4,
+        "title": "Office Supplies Asset Management",
+        "Category": "Assets",
+        "Parent": "Admin"
+        "Hierarchy": "",
+        "DispositionType": "TSA"
+    },
+    {
+        "ID": 8,
+        "title": "Marketing Strategy Assets",
+        "Category": "Assets",
+        "Parent": "Marketing"
+        "Hierarchy": "",
+        "DispositionType": "TSA"
+    }
+    ]
+    EYIP: [{
+        "title":"Inventory Management",
+        "serviceinscopedescription": "Monitoring and managing raw material and finished goods inventory levels, ensuring optimal stock levels, and coordinating with suppliers."
+    }]
+    project documentation: []
+    AIT: []
+  
+  Output: [
+    {
+        "title": "Customer Support Process",
+        "serviceInScopeDescription": "This TSA covers the process of providing customer support managed by the Customer Service team.",
+        "tSADay1Disposition": {"key":"TSA"},
+        "assistantGeneratorOrigins": [1],
+        "associatedProcesses": [
+            1
+        ],
+        "associatedSystems": [],
+        "associatedFacilities": [],
+        "associatedAssets": [],
+        "associatedTPAs": [],
+        "associatedAITs": []
+    },
+    {
+        "title": "Inventory Management System",
+        "serviceInScopeDescription": "This TSA covers the system for managing inventory operations managed by the Supply Chain team.",
+        "tSADay1Disposition": {"key":"rTSA"},
+        "assistantGeneratorOrigins": [1,2],
+        "associatedProcesses": [],
+        "associatedSystems": [
+            2
+        ],
+        "associatedFacilities": [],
+        "associatedAssets": [],
+        "associatedTPAs": [],
+        "associatedAITs": []
+    },
+    {
+        "title": "Network Infrastructure Facility",
+        "serviceInScopeDescription": "This TSA covers the facility for network infrastructure operations managed by the IT team.",
+        "tSADay1Disposition": {"key":"rTSA"},
+        "assistantGeneratorOrigins": [1],
+        "associatedProcesses": [],
+        "associatedSystems": [],
+        "associatedFacilities": [
+            3
+        ],
+        "associatedAssets": [],
+        "associatedTPAs": [],
+        "associatedAITs": []
+    },
+    {
+        "title": "Office Supplies Assets",
+        "serviceInScopeDescription": "This TSA covers the assets related to office supplies managed by the Admin team.",
+        "tSADay1Disposition": {"key":"TSA"},
+        "assistantGeneratorOrigins": [1],
+        "associatedProcesses": [],
+        "associatedSystems": [],
+        "associatedFacilities": [],
+        "associatedAssets": [
+            4
+        ],
+        "associatedTPAs": [],
+        "associatedAITs": []
+    },
+    {
+        "title": "Marketing Campaign Process",
+        "serviceInScopeDescription": "This TSA covers the process of executing marketing campaigns managed by the Marketing team.",
+        "tSADay1Disposition": {"key":"TSA"},
+        "assistantGeneratorOrigins": [1],
+        "associatedProcesses": [],
+        "associatedSystems": [],
+        "associatedFacilities": [],
+        "associatedAssets": [8],
+        "associatedTPAs": [],
+        "associatedAITs": []
+    }
+  ]
+
+  TSAs: {tsa_generated}
+
+  Input Data: 
+    Operating Model: {op_model}
+    EYIP: {ey_ip}
+    project documentation: {documents}
+    AIT: {ait_data}
+
+  Output:

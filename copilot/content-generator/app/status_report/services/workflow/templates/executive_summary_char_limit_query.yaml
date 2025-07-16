@@ -1,0 +1,6 @@
+text: |
+  SELECT CHARACTER_MAXIMUM_LENGTH AS MaxCharLimit
+  FROM INFORMATION_SCHEMA.COLUMNS
+  WHERE
+  TABLE_NAME = 'ProjectStatusEntries'
+  AND COLUMN_NAME = 'ExecutiveSummary'

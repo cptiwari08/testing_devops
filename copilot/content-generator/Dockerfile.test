@@ -1,0 +1,25 @@
+FROM python:3.12
+
+WORKDIR /code
+
+# Copy only the requirements files first
+COPY requirements.txt test_requirements.txt /code/
+
+# Install Python requirements
+RUN echo "Installing Python requirements" && \
+  pip install --upgrade pip && \
+  pip install --no-cache-dir --upgrade -r /code/requirements.txt && \
+  pip install --no-cache-dir --upgrade -r /code/test_requirements.txt
+
+
+# Copy the entire project directory into the container
+COPY app /code/app
+COPY .coveragerc /code/.coveragerc
+COPY pytest.ini /code/pytest.ini
+COPY conftest.py /code/conftest.py
+
+# Run pytest
+RUN echo "Running pytest" && pytest --cov=.
+
+RUN useradd -m nonroot
+USER nonroot

@@ -1,0 +1,21 @@
+text: |
+  [
+    {
+      "title": "TSA service title",
+      "serviceInScopeDescription": "
+      - detailed description of the service point 1 
+      - detailed description of the service point 2"
+    },
+    {
+      "title": "TSA service title",
+      "serviceInScopeDescription": "
+      - detailed description of the service point 1 
+      - detailed description of the service point 2"
+    },
+    {
+      "title": "TSA service title",
+      "serviceInScopeDescription": "
+      - detailed description of the service point 1 
+      - detailed description of the service point 2"
+    }
+  ]

@@ -1,0 +1,119 @@
+@import 'mixins';
+@import 'variables';
+@import 'typography';
+
+html,
+body {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
+body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--body-bg);
+    color: var(--body-color);
+    line-height: inherit;
+    height: 100vh;
+    overflow: hidden;
+    font: {
+        family: $ey-font-light;
+    }
+}
+
+* {
+    box-sizing: border-box;
+    outline: none;
+}
+
+:root {
+    --table-row-hover-bg-color: #{transparent};
+    --loader-primary-color: #{$grey-450};
+    --loader-secondary-color: #{$grey-250};
+    --helper-icon-primary-color: #{$grey-400};
+    --like-primary-color: #{$green-icon};
+    --dislike-primary-color: #{$red-icon};
+    --link-primary-color: #{$link-text};
+    --feedback-primary-color: #{$yellow-400};
+}
+
+html,
+body,
+div,
+span,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+img,
+strong,
+sub,
+sup,
+b,
+u,
+i,
+center,
+ol,
+ul,
+li,
+form,
+label,
+article,
+figure,
+figcaption,
+footer,
+header,
+nav,
+section {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+button{
+    cursor: pointer;
+}
+
+.btn{
+    padding:.75rem 1.5rem;
+    border: .06rem solid;
+    outline: none;
+    cursor: pointer;
+    font: {
+        weight:600;
+        size:.75rem;
+    }
+}
+.btn-primary{
+    background-color: $yellow-400;
+    color: $grey-500;
+    border-color: $yellow-400;
+    &:disabled{
+       background-color: #282836;
+       color: #747480;
+       border-color: #282836;
+       pointer-events: none;
+       cursor: not-allowed;    
+    }
+}
+.btn-secondary{
+    background-color: transparent;
+    color: $white;
+    border-color: $white;
+}
+.btn-error{
+    background-color: $red-300;
+    color: $grey-500;
+    border-color:$grey-500;
+}
+.ag-overlay-no-rows-wrapper{
+    color: $white !important;
+}

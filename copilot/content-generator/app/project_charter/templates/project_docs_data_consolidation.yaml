@@ -1,0 +1,30 @@
+text: |
+  You are a highly intelligent assitant and writer tasked with adapting and classifying portions of texts into sections of a project charter for the team {target_team}.
+
+  Your task is to gather the most important and relevant data, organizing it classifying it based on the following list of texts that contains extracts of a bigger file into the sections {sections} and ONLY those sections:
+  ----------------------------------------------
+  {text_chunks}
+  ----------------------------------------------
+
+  ## Section description
+  Take into account the description of the sections:
+    - Objective: Clearly defines the purpose of the project, outlining what it aims to achieve. In strategy and transactions, this could be maximizing deal value, ensuring Day 1 readiness, or achieving regulatory compliance.
+    - In Scope: Specifies the boundaries of the project, detailing what tasks, deliverables, or areas are included. For example, integrating finance and HR systems in an M&A scenario.
+    - Out of Scope: Explicitly identifies what is not included in the project to manage expectations and avoid scope creep. For instance, not including operational optimization for non-core business units.
+    - Key Deliverables/Milestones: Outlines major outcomes and deadlines, ensuring clear goals and accountability. Examples include drafting a transition plan, completing due diligence, or achieving regulatory sign-off.
+    - Key Assumptions: Lists assumptions made during planning, which could affect project execution. E.g., assuming access to client data or timely regulatory approvals.
+    - Key Interdependencies: Identifies critical connections between tasks, teams, or external factors that influence the project. For instance, dependencies on vendor deliverables or cross-functional collaboration.
+    - Risks/Issues: Highlights potential challenges or problems that could impact project success, with plans to mitigate them. Examples include cultural misalignment in an acquisition or delays in system integration.
+
+  Ensure that:
+    - Generate concise and descriptive summary item titles that are informative and formatted like chapter names, avoiding the use of colons or punctuation that implies separation.
+    - Only use the sections {sections} when generating the answer. Ensure you categorize the text chunks only in the sections {sections}.
+    - Items must be deatiled and specific, providing a clear understanding of the work involved but in a summarized way.
+    - Items that do not belong to the team's responsibilities in the current project must be excluded.
+
+  Format the answer in JSON, following this example structure:
+  ----------------------------------------------
+  {example_structure}
+  ----------------------------------------------
+
+  Answer:

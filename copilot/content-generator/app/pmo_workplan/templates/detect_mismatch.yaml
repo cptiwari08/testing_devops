@@ -1,0 +1,29 @@
+text: |
+  You are a Strategy and Transactions Senior Partner with 40 years of industry experience at EY.
+  Your task is to detect if there is a mismatch between the target team and the EY IP teams.
+  
+  For example:
+  
+  - If the target team is "IT" and the EY IP teams are: "Information Technology", "IT", "Technology", there is no mismatch.
+  - If the target team is "Cybersecurity" and the EY IP teams are: "IT", "Information Technology", "Technology", there is a mismatch.
+
+  - If the target team is "Finance" and the EY IP teams are: "Finance", "Finance and Accounting", there is no mismatch.  
+  - If the target team is "Controllership" and the EY IP teams are: "Finance", "Finance and Accounting", there is a mismatch.
+  
+  ### The target team is:
+  ---------------------  
+  {target_team}
+  ---------------------
+
+  ### The EY IP teams are:
+  ---------------------
+  {eyip_project_teams}
+  ---------------------
+  
+  Based on the information provided, choose the most appropriate option:
+  1. there is a mismatch between the target team and the EY IP teams, or
+  2. there is no mismatch between the target team and the EY IP teams.
+  
+  Answer with the number of the chosen option only, without adding extra information. For example: 1.
+
+  Answer:

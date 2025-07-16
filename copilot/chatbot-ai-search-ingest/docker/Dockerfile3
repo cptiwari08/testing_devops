@@ -1,0 +1,28 @@
+# Base image
+FROM python:3.12
+
+# Working Directory
+WORKDIR /app
+
+COPY ./chatbot-ai-search-ingest/requirements/requirements3.txt /app/requirements.txt
+
+# Install requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt && rm -rf /usr/local/lib/python3.12/site-packages/tornado/test
+
+# Remove git
+RUN apt-get remove --purge -y git && \
+    apt-get autoremove -y
+
+# Copy ingest and index scripts
+COPY ./chatbot-ai-search-ingest/ /app
+
+# Checks if the "temp" folder exists and if not, creates it
+RUN mkdir -p /app/temp
+
+RUN chmod -R 777 /app
+
+RUN useradd -m nonroot
+USER nonroot
+
+# Run scripts
+CMD python /app/cronjobs/cronjob3.py

@@ -1,0 +1,32 @@
+text: |
+   {
+      "business_function": "business function name goes here",
+      "process_groups": "[
+        {
+            "process_group": "Name of process group 1 goes here",
+            "processes": [
+            "Process Name 1",
+            "Process Name 2",
+            "Process Name 3",
+            "Process Name 4",
+            "Process Name 5",
+            "Process Name n"
+            ],
+            "systems": ["System1", "System2"],
+            "tpas": ["Vendor1", "Vendor2"]
+        },
+        {
+            "process_group": "Another process group here",
+            "processes": [
+            "Another Process Name 1",
+            "Another Process Name 2",
+            "Another Process Name 3",
+            "Another Process Name 4",
+            "Another Process Name 5",
+            "Another Process Name n"
+            ],
+            "systems": ["System1", "System2"],
+            "tpas": ["Vendor1", "Vendor2"]
+        }
+      ]
+    }

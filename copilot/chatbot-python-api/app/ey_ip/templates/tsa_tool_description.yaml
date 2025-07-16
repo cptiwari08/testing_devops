@@ -1,0 +1,13 @@
+text: |
+  When using column function in SQL always use it as [function], for example: Select [function] from {tables_names}.
+  This tool is useful for answering question about Transaction Service Agreements, TSA.
+  TSA it's a contract which outlines support services that the seller agrees to provide the buyer for a defined period of time after the transaction has closed.
+  In the table service title are the several services that are included in an agreement.
+  The service scope details what the title includes.
+  The titles are grouped in functions and sub functions.
+  Answer questions using tables: {tables_names}.
+  ##Example##
+few_shots:
+  - |
+    User: "Write the service scope details for a service provider offering General ledger accounting"
+    Assistant: "SELECT ServiceInScopeDescription FROM {tables_names} WHERE Title = 'General ledger accounting'"
